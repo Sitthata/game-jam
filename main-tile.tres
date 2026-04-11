@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" format=3 uid="uid://b6kryu7eqktvv"]
 
-[ext_resource type="Texture2D" uid="uid://cyq0djnhgnwhx" path="res://assets/Dungeon Gathering Free Version (2)/Set 1.0.png" id="1_anu0u"]
-[ext_resource type="Texture2D" uid="uid://cf0uchco7ydcu" path="res://assets/Dungeon Gathering Free Version (2)/Set 1.1.png" id="2_ml1fd"]
-[ext_resource type="Texture2D" uid="uid://ddcwl0436hpds" path="res://assets/Dungeon Gathering Free Version (2)/Torch Yellow L.png" id="3_fprje"]
-[ext_resource type="Texture2D" uid="uid://u2dc6ni7sptl" path="res://assets/Dungeon Gathering Free Version (2)/Vase Shine Anim.png" id="4_pjscl"]
+[ext_resource type="Texture2D" uid="uid://cyq0djnhgnwhx" path="res://assets/tilemap/Set 1.0.png" id="1_anu0u"]
+[ext_resource type="Texture2D" uid="uid://cf0uchco7ydcu" path="res://assets/tilemap/Set 1.1.png" id="2_ml1fd"]
+[ext_resource type="Texture2D" uid="uid://ddcwl0436hpds" path="res://assets/tilemap/Torch Yellow L.png" id="3_fprje"]
+[ext_resource type="Texture2D" uid="uid://u2dc6ni7sptl" path="res://assets/tilemap/Vase Shine Anim.png" id="4_pjscl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmxx0"]
 resource_name = "wall"
