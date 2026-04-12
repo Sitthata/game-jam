@@ -33,7 +33,7 @@ tile_set = ExtResource("1_ig7tw")
 
 [node name="Player" parent="." unique_id=526917429 instance=ExtResource("2_0xm2m")]
 position = Vector2(364, 256)
-scale = Vector2(1, 1)
+scale = Vector2(1.2, 1.2)
 speed = 150
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1358230633]

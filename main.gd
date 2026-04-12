@@ -21,6 +21,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _apply_timeline_state() -> void:
+	player.play_swap_effect()
 	_set_timeline_active(present, in_present)
 	_set_timeline_active(past, !in_present)
 
