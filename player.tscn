@@ -117,7 +117,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
 radius = 4.4000006
-height = 16.400002
+height = 13.0
 
 [node name="Player" type="CharacterBody2D" unique_id=526917429]
 scale = Vector2(2, 2)
@@ -135,4 +135,6 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2017924944]
-zoom = Vector2(5, 5)
+zoom = Vector2(8, 8)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
