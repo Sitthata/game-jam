@@ -37,4 +37,4 @@ scale = Vector2(1, 1)
 speed = 150
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1358230633]
-color = Color(0.0023615654, 0.013385472, 0.12986913, 1)
+color = Color(0.003921569, 0.011764706, 0, 1)
