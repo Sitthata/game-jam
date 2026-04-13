@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://drhhi5u04yrok"]
 
-[ext_resource type="Script" uid="uid://4xkca4stax5e" path="res://main.gd" id="1_c81vo"]
-[ext_resource type="TileSet" uid="uid://pmtt6hgqko4" path="res://pat-tile.tres" id="2_35kre"]
-[ext_resource type="PackedScene" uid="uid://djxrjakk4neg2" path="res://player.tscn" id="10_i6cpi"]
+[ext_resource type="Script" uid="uid://4xkca4stax5e" path="res://game_object/script/main.gd" id="1_c81vo"]
+[ext_resource type="TileSet" uid="uid://pmtt6hgqko4" path="res://texture/pat-tile.tres" id="2_35kre"]
+[ext_resource type="PackedScene" uid="uid://djxrjakk4neg2" path="res://game_object/scene/player.tscn" id="10_i6cpi"]
 
 [node name="Tilemap" type="Node2D" unique_id=814812158]
 script = ExtResource("1_c81vo")
@@ -44,6 +44,7 @@ tile_set = ExtResource("2_35kre")
 [node name="Player" parent="." unique_id=526917429 instance=ExtResource("10_i6cpi")]
 position = Vector2(351, 482)
 scale = Vector2(1, 1)
+speed = 100
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1515780715]
 color = Color(0.003921569, 0.011764706, 0, 1)

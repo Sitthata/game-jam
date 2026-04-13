@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bopyp2mjnv2oa"]
+
+[ext_resource type="Script" uid="uid://c5exy38nu84u1" path="res://game_object/script/vase.gd" id="1_y28lw"]
+[ext_resource type="Texture2D" uid="uid://u2dc6ni7sptl" path="res://assets/tilemap/Vase Shine Anim.png" id="2_tvxo7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rscs"]
+atlas = ExtResource("2_tvxo7")
+region = Rect2(49, 1, 14, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8sn8"]
+size = Vector2(14, 11)
+
+[node name="Vase" type="CharacterBody2D" unique_id=491138248]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_y28lw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=984981102]
+texture = SubResource("AtlasTexture_1rscs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571717329]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_m8sn8")

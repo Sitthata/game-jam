@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cyq0djnhgnwhx" path="res://assets/tilemap/Set 1.0.png" id="1_anu0u"]
 [ext_resource type="Texture2D" uid="uid://cf0uchco7ydcu" path="res://assets/tilemap/Set 1.1.png" id="2_ml1fd"]
 [ext_resource type="Texture2D" uid="uid://ddcwl0436hpds" path="res://assets/tilemap/Torch Yellow L.png" id="3_fprje"]
+[ext_resource type="Texture2D" uid="uid://cdy8uj45qp5ui" path="res://assets/tilemap/Button.png" id="3_ml1fd"]
 [ext_resource type="Texture2D" uid="uid://u2dc6ni7sptl" path="res://assets/tilemap/Vase Shine Anim.png" id="4_pjscl"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_10exg"]
@@ -267,6 +268,12 @@ texture = ExtResource("2_ml1fd")
 16:6/0 = 0
 17:6/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fprje"]
+texture = ExtResource("3_ml1fd")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rqwo"]
 resource_name = "touches"
 texture = ExtResource("3_fprje")
@@ -322,3 +329,4 @@ sources/0 = SubResource("TileSetAtlasSource_kmxx0")
 sources/1 = SubResource("TileSetAtlasSource_tq6m3")
 sources/3 = SubResource("TileSetAtlasSource_8rqwo")
 sources/4 = SubResource("TileSetAtlasSource_7um3f")
+sources/2 = SubResource("TileSetAtlasSource_fprje")

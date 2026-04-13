@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c7duadhriltab"]
+
+[ext_resource type="Script" uid="uid://buf04uep2ba3p" path="res://game_object/script/pressure_plate.gd" id="1_8bqyo"]
+[ext_resource type="Texture2D" uid="uid://cdy8uj45qp5ui" path="res://assets/tilemap/Button.png" id="1_uot4y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bqyo"]
+atlas = ExtResource("1_uot4y")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djmga"]
+size = Vector2(12, 12)
+
+[node name="PressurePlate" type="Area2D" unique_id=1345142153]
+collision_mask = 3
+script = ExtResource("1_8bqyo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1108707850]
+texture = SubResource("AtlasTexture_8bqyo")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=931623057]
+shape = SubResource("RectangleShape2D_djmga")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
