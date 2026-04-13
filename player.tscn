@@ -340,7 +340,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
-"speed": 22.0
+"speed": 18.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=526917429]
@@ -360,7 +360,7 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2017924944]
-zoom = Vector2(4, 4)
+zoom = Vector2(7, 7)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
@@ -376,3 +376,4 @@ texture_scale = 2.0
 texture_filter = 1
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_1xqrm")
+animation = &"jump"

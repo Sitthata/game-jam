@@ -1,7 +1,7 @@
-[gd_scene format=4 uid="uid://dcn511yjuw77c"]
+[gd_scene format=4 uid="uid://drhhi5u04yrok"]
 
 [ext_resource type="Script" uid="uid://4xkca4stax5e" path="res://main.gd" id="1_c81vo"]
-[ext_resource type="TileSet" uid="uid://dercre7im6ssw" path="res://pat-tile.tres" id="2_35kre"]
+[ext_resource type="TileSet" uid="uid://pmtt6hgqko4" path="res://pat-tile.tres" id="2_35kre"]
 [ext_resource type="PackedScene" uid="uid://djxrjakk4neg2" path="res://player.tscn" id="10_i6cpi"]
 
 [node name="Tilemap" type="Node2D" unique_id=814812158]
