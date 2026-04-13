@@ -40,3 +40,5 @@ func _physics_process(delta: float) -> void:
 		else:
 			_animated_sprite.play("walk_side")
 			_animated_sprite.flip_h = velocity.x > 0
+	else:
+		_animated_sprite.play("idle")

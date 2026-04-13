@@ -8,8 +8,7 @@ var _bodies_on_plate: int = 0
 enum State { OFF, PARTIAL, FULL }  # maps to frame 0, 1, 2
 
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
-	body_exited.connect(_on_body_exited)
+	call_deferred("_update_state")
 
 func _on_body_entered(body: Node2D) -> void:
 	_bodies_on_plate += 1

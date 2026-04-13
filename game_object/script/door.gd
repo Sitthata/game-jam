@@ -3,13 +3,13 @@ extends StaticBody2D
 @onready var _collision: CollisionShape2D = $CollisionShape2D
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	_collision.set_deferred("disabled", true)
+	_sprite.frame = _sprite.sprite_frames.get_frame_count("open") - 1
+
 func open() -> void:
+	_collision.set_deferred("disabled", true)
 	_sprite.play("open")
-	# Disable collision once the open animation finishes
-	_sprite.animation_finished.connect(
-		func(): _collision.set_deferred("disabled", true),
-		CONNECT_ONE_SHOT
-	)
 
 func close() -> void:
 	_collision.set_deferred("disabled", false)
