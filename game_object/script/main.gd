@@ -31,6 +31,10 @@ func _set_timeline_active(timeline: Node2D, active: bool) -> void:
 	for child in timeline.get_children():
 		if child is TileMapLayer:
 			child.collision_enabled = active
+		elif child is CollisionObject2D:
+			for shape in child.get_children():
+				if shape is CollisionShape2D:
+					shape.set_deferred("disabled", !active)
 
 func _has_collision_at_player(timeline: Node2D) -> bool:
 	for layer in timeline.get_children():

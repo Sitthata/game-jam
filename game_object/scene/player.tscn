@@ -368,8 +368,8 @@ position_smoothing_speed = 3.0
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=68361614]
 energy = 0.6
 shadow_enabled = true
-shadow_filter = 2
-shadow_filter_smooth = 1.0
+shadow_filter = 1
+shadow_filter_smooth = 1.5
 texture = SubResource("GradientTexture2D_hqtel")
 texture_scale = 2.0
 
