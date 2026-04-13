@@ -5,7 +5,8 @@ extends StaticBody2D
 
 func _ready() -> void:
 	_collision.set_deferred("disabled", true)
-	_sprite.frame = _sprite.sprite_frames.get_frame_count("open") - 1
+	_sprite.animation = "open"
+	_sprite.frame = 0
 
 func open() -> void:
 	_collision.set_deferred("disabled", true)
