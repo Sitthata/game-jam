@@ -3,9 +3,16 @@
 [ext_resource type="Script" uid="uid://4xkca4stax5e" path="res://game_object/script/main.gd" id="1_h2yge"]
 [ext_resource type="TileSet" uid="uid://b6kryu7eqktvv" path="res://texture/main-tile.tres" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://djxrjakk4neg2" path="res://game_object/scene/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ulx0qcjsimnh" path="res://game_object/scene/laser.tscn" id="3_8susu"]
 [ext_resource type="PackedScene" uid="uid://duqamnr4ohdc1" path="res://game_object/scene/door.tscn" id="3_656ll"]
 [ext_resource type="PackedScene" uid="uid://bopyp2mjnv2oa" path="res://game_object/scene/vase.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c7duadhriltab" path="res://game_object/scene/pressure_plate.tscn" id="5_lquwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8susu"]
+size = Vector2(56, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p25bm"]
+size = Vector2(64.49806, 4)
 
 [node name="Main" type="Node" unique_id=907222161]
 script = ExtResource("1_h2yge")
@@ -35,6 +42,48 @@ tile_map_data = PackedByteArray("AAAUAA4AAAACAAIAAAAVAA4AAAACAAIAAAAWAA4AAAACAAI
 tile_set = ExtResource("1_ig7tw")
 collision_visibility_mode = 1
 
+[node name="Laser2" parent="Past" unique_id=1600160495 node_paths=PackedStringArray("spawn_point") instance=ExtResource("3_8susu")]
+position = Vector2(544, 160)
+spawn_point = NodePath("../../SpawnPoint")
+
+[node name="Line2D" parent="Past/Laser2" index="0" unique_id=241937340]
+points = PackedVector2Array(0, -24, 0, 32)
+
+[node name="GlowLine" parent="Past/Laser2" index="1" unique_id=1499848663]
+points = PackedVector2Array(0, -24, 0, 32)
+
+[node name="CollisionShape2D" parent="Past/Laser2" index="2" unique_id=2013981123]
+position = Vector2(0, 4)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_8susu")
+
+[node name="StartPoint" parent="Past/Laser2" index="3" unique_id=1809157336]
+position = Vector2(0, -24)
+
+[node name="EndPoint" parent="Past/Laser2" index="4" unique_id=1607158111]
+position = Vector2(0, 32)
+
+[node name="Laser" parent="Past" unique_id=2103543355 node_paths=PackedStringArray("spawn_point") instance=ExtResource("3_8susu")]
+position = Vector2(504, 160)
+spawn_point = NodePath("../../SpawnPoint")
+
+[node name="Line2D" parent="Past/Laser" index="0" unique_id=241937340]
+points = PackedVector2Array(24, -24, -8, 32)
+
+[node name="GlowLine" parent="Past/Laser" index="1" unique_id=1499848663]
+points = PackedVector2Array(24, -24, -8, 32)
+
+[node name="CollisionShape2D" parent="Past/Laser" index="2" unique_id=2013981123]
+position = Vector2(8, 4)
+rotation = 2.0899425
+shape = SubResource("RectangleShape2D_p25bm")
+
+[node name="StartPoint" parent="Past/Laser" index="3" unique_id=1809157336]
+position = Vector2(24, -24)
+
+[node name="EndPoint" parent="Past/Laser" index="4" unique_id=1607158111]
+position = Vector2(-8, 32)
+
 [node name="PressurePlate" parent="." unique_id=1345142153 instance=ExtResource("5_lquwl")]
 position = Vector2(560, 296)
 metadata/_edit_group_ = true
@@ -47,7 +96,7 @@ position = Vector2(632, 256)
 rotation = -1.5707964
 
 [node name="Player" parent="." unique_id=526917429 instance=ExtResource("2_0xm2m")]
-position = Vector2(560, 248)
+position = Vector2(-272, -96)
 scale = Vector2(1.2, 1.2)
 speed = 150
 push_speed = 30
@@ -56,5 +105,11 @@ push_speed = 30
 visible = false
 color = Color(0.003921569, 0.011764706, 0, 1)
 
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=609041866]
+position = Vector2(520, 288)
+
 [connection signal="pressed" from="PressurePlate" to="Door" method="close"]
 [connection signal="released" from="PressurePlate" to="Door" method="open"]
+
+[editable path="Past/Laser2"]
+[editable path="Past/Laser"]

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ulx0qcjsimnh"]
+
+[ext_resource type="Script" uid="uid://j0rjmxo2xaq8" path="res://game_object/script/laser.gd" id="1_jqgmf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jqgmf"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_biu50"]
+size = Vector2(64.49806, 4)
+
+[node name="Laser" type="Area2D" unique_id=1600160495]
+script = ExtResource("1_jqgmf")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=241937340]
+points = PackedVector2Array(-8, 0, 8, 0)
+width = 2.0
+default_color = Color(0.6689225, 0, 0.012920001, 1)
+
+[node name="GlowLine" type="Line2D" parent="." unique_id=1499848663]
+material = SubResource("CanvasItemMaterial_jqgmf")
+points = PackedVector2Array(-8, 0, 8, 0)
+width = 6.0
+default_color = Color(0.19586803, 0.021090686, 0.021090686, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013981123]
+visible = false
+shape = SubResource("RectangleShape2D_biu50")
+
+[node name="StartPoint" type="Marker2D" parent="." unique_id=1809157336]
+position = Vector2(-8, 0)
+
+[node name="EndPoint" type="Marker2D" parent="." unique_id=1607158111]
+position = Vector2(8, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

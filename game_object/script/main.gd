@@ -3,12 +3,14 @@ extends Node
 @onready var present: Node2D = $Present
 @onready var past: Node2D = $Past
 @onready var player: CharacterBody2D = $Player
+@onready var spawn_point: Marker2D = $SpawnPoint
 
 var in_present: bool = true
 
 func _ready() -> void:
 	_apply_timeline_state()
-
+	player.global_position = spawn_point.global_position
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("timeline_swap"):
