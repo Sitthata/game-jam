@@ -3,6 +3,7 @@ extends StaticBody2D
 @onready var _collision: CollisionShape2D = $CollisionShape2D
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+
 func _ready() -> void:
 	_collision.set_deferred("disabled", true)
 	_sprite.animation = "open"

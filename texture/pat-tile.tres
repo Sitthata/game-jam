@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://i32b20wt1w4g" path="res://assets/tilemap/Set 3.5.png" id="6_23cai"]
 [ext_resource type="Texture2D" uid="uid://cpfjknfit37tf" path="res://assets/tilemap/Set 4.5.png" id="7_bujss"]
 [ext_resource type="Texture2D" uid="uid://ba77bsi1dwccl" path="res://assets/tilemap/Structure.png" id="8_mwo5b"]
+[ext_resource type="Texture2D" uid="uid://xvnjn50nq15o" path="res://assets/tilemap/own_assets/tiles/Tile.png" id="9_gflt1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i6cpi"]
 texture = ExtResource("1_0irux")
@@ -767,6 +768,18 @@ texture = ExtResource("8_mwo5b")
 0:0/0 = 0
 0:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqjhv"]
+texture = ExtResource("9_gflt1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
 [resource]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
@@ -778,3 +791,4 @@ sources/4 = SubResource("TileSetAtlasSource_k8jdh")
 sources/5 = SubResource("TileSetAtlasSource_gkke7")
 sources/6 = SubResource("TileSetAtlasSource_4snpw")
 sources/7 = SubResource("TileSetAtlasSource_l1e5b")
+sources/8 = SubResource("TileSetAtlasSource_iqjhv")
