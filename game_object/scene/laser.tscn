@@ -5,34 +5,33 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jqgmf"]
 blend_mode = 1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_biu50"]
-size = Vector2(64.49806, 4)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqgmf"]
+size = Vector2(300, 4)
 
-[node name="Laser" type="Area2D" unique_id=1600160495]
+[node name="Laser" type="Node2D" unique_id=931180747]
 script = ExtResource("1_jqgmf")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=241937340]
-points = PackedVector2Array(-8, 0, 8, 0)
+[node name="Line2D" type="Line2D" parent="." unique_id=1098404901]
+points = PackedVector2Array(0, 0, 300, 0)
 width = 2.0
 default_color = Color(0.6689225, 0, 0.012920001, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
 
-[node name="GlowLine" type="Line2D" parent="." unique_id=1499848663]
+[node name="GlowLine" type="Line2D" parent="." unique_id=177531483]
 material = SubResource("CanvasItemMaterial_jqgmf")
-points = PackedVector2Array(-8, 0, 8, 0)
+points = PackedVector2Array(0, 0, 300, 0)
 width = 6.0
 default_color = Color(0.19586803, 0.021090686, 0.021090686, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013981123]
+[node name="Area2D" type="Area2D" parent="." unique_id=285800079]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2118539007]
 visible = false
-shape = SubResource("RectangleShape2D_biu50")
+position = Vector2(150, 0)
+shape = SubResource("RectangleShape2D_jqgmf")
 
-[node name="StartPoint" type="Marker2D" parent="." unique_id=1809157336]
-position = Vector2(-8, 0)
-
-[node name="EndPoint" type="Marker2D" parent="." unique_id=1607158111]
-position = Vector2(8, 0)
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_body_entered"]

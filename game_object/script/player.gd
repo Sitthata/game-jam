@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var _effect_sprite = $EffectSprite
 
 func _ready() -> void:
-	pass
+	add_to_group("player")
 
 func play_swap_effect() -> void:
 	_animated_sprite.visible = false
