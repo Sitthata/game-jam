@@ -41,11 +41,14 @@ position = Vector2(520, 192)
 rotation = -1.5707964
 spawn_point = NodePath("../../SpawnPoint")
 
+[node name="Vase2" parent="Past" unique_id=491138248 instance=ExtResource("4_1bvp3")]
+position = Vector2(520, 160)
+
 [node name="PressurePlate" parent="." unique_id=1345142153 instance=ExtResource("5_lquwl")]
 position = Vector2(560, 296)
 metadata/_edit_group_ = true
 
-[node name="Vase" parent="." unique_id=491138248 instance=ExtResource("4_1bvp3")]
+[node name="Vase" parent="." unique_id=34545549 instance=ExtResource("4_1bvp3")]
 position = Vector2(528, 248)
 
 [node name="Door" parent="." unique_id=190594260 instance=ExtResource("3_656ll")]

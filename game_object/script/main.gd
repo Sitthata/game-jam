@@ -37,6 +37,12 @@ func _set_timeline_active(timeline: Node2D, active: bool) -> void:
 			for shape in child.get_children():
 				if shape is CollisionShape2D:
 					shape.set_deferred("disabled", !active)
+		elif child is Node2D:
+			child.process_mode = Node.PROCESS_MODE_INHERIT if active else Node.PROCESS_MODE_DISABLED
+			for obj in child.find_children("*", "CollisionObject2D", true, false):
+				for shape in obj.get_children():
+					if shape is CollisionShape2D:
+						shape.set_deferred("disabled", !active)
 
 func _has_collision_at_player(timeline: Node2D) -> bool:
 	for layer in timeline.get_children():

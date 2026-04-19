@@ -34,7 +34,7 @@ func _update_beam() -> void:
 	var space_state = get_world_2d().direct_space_state
 	if space_state:
 		var query = PhysicsRayQueryParameters2D.create(from, to)
-		query.collision_mask = 1
+		query.collision_mask = 3
 		query.collide_with_bodies = true
 		query.exclude = _exclude_rids
 
