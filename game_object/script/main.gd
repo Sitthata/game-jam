@@ -26,6 +26,8 @@ func _apply_timeline_state() -> void:
 	player.play_swap_effect()
 	_set_timeline_active(present, in_present)
 	_set_timeline_active(past, !in_present)
+	for room in get_tree().get_nodes_in_group("puzzle_room"):
+		room.set_timeline(in_present)
 	
 func _set_timeline_active(timeline: Node2D, active: bool) -> void:
 	timeline.visible = active
@@ -50,4 +52,15 @@ func _has_collision_at_player(timeline: Node2D) -> bool:
 			var tile_data = layer.get_cell_tile_data(map_pos)
 			if tile_data != null and tile_data.get_collision_polygons_count(0) > 0:
 				return true
+	var side_name = "Present" if timeline == present else "Past"
+	for room in get_tree().get_nodes_in_group("puzzle_room"):
+		var side = room.get_node_or_null(side_name)
+		if side == null:
+			continue
+		for layer in side.get_children():
+			if layer is TileMapLayer:
+				var map_pos = layer.local_to_map(layer.to_local(player.global_position))
+				var tile_data = layer.get_cell_tile_data(map_pos)
+				if tile_data != null and tile_data.get_collision_polygons_count(0) > 0:
+					return true
 	return false

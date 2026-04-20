@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [global_group]
 
 timeline_object=""
+puzzle_room=""
 
 [input]
 
