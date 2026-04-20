@@ -11,6 +11,7 @@ var _player_in_range: bool = false
 
 func _ready() -> void:
 	_update_visual()
+	toggled.emit.call_deferred(is_on)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _player_in_range and event.is_action_pressed("interact"):

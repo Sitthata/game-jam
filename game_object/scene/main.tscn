@@ -26,14 +26,15 @@ tile_set = ExtResource("1_ig7tw")
 tile_map_data = PackedByteArray("AAAXABEABAADAAAAAAAVABAABAAOAAAAAAAkABIAAQAMAAUAAAAlABIAAQANAAUAAAAkABMAAQAMAAYAAAAlABMAAQANAAYAAAAgAA8AAQAKAAUAAAAgABEAAQALAAYAAAAlAA4AAQAIAAYAAAAhABMAAQAJAAYAAAAfABQAAQAIAAUAAAAjAA8AAQAIAAUAAAA=")
 tile_set = ExtResource("1_ig7tw")
 
-[node name="Vase2" parent="Present/Layer1" unique_id=1507702939 instance=ExtResource("4_1bvp3")]
-position = Vector2(576, 248)
+[node name="Lever2" parent="Present" unique_id=62831499 instance=ExtResource("4_p25bm")]
+position = Vector2(592, 288)
+is_on = true
 
-[node name="Vase" parent="Present/Layer1" unique_id=34545549 instance=ExtResource("4_1bvp3")]
+[node name="Vase3" parent="Present" unique_id=34545549 instance=ExtResource("4_1bvp3")]
 position = Vector2(528, 248)
 
-[node name="Lever2" parent="Present/Layer1" unique_id=62831499 instance=ExtResource("4_p25bm")]
-position = Vector2(592, 288)
+[node name="Vase2" parent="Present" unique_id=1507702939 instance=ExtResource("4_1bvp3")]
+position = Vector2(576, 248)
 
 [node name="Past" type="Node2D" parent="." unique_id=44764756]
 
@@ -57,6 +58,7 @@ collision_mask = 1
 
 [node name="Lever" parent="Past" unique_id=1377029982 instance=ExtResource("4_p25bm")]
 position = Vector2(544, 176)
+is_on = true
 
 [node name="PressurePlate" parent="." unique_id=1345142153 instance=ExtResource("5_lquwl")]
 position = Vector2(560, 296)
@@ -64,6 +66,7 @@ metadata/_edit_group_ = true
 
 [node name="Vase" parent="." unique_id=479726341 instance=ExtResource("4_1bvp3")]
 position = Vector2(500, 228)
+collision_mask = 1
 
 [node name="Door" parent="." unique_id=190594260 instance=ExtResource("3_656ll")]
 position = Vector2(632, 256)
@@ -82,5 +85,5 @@ color = Color(0.003921569, 0.011764706, 0, 1)
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=609041866]
 position = Vector2(520, 288)
 
-[connection signal="toggled" from="Present/Layer1/Lever2" to="Door" method="set_open"]
+[connection signal="toggled" from="Present/Lever2" to="Door" method="set_open"]
 [connection signal="toggled" from="Past/Lever" to="Past/Laser" method="set_active"]
