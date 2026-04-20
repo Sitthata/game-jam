@@ -15,6 +15,10 @@ run/main_scene="uid://dnhk835ln5p2a"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[global_group]
+
+timeline_object=""
+
 [input]
 
 timeline_swap={

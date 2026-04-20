@@ -36,7 +36,7 @@ radius = 20.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nu5vf"]
 size = Vector2(13.5, 7)
 
-[node name="Lever" type="Area2D" unique_id=62831499]
+[node name="Lever" type="Area2D" unique_id=62831499 groups=["timeline_object"]]
 script = ExtResource("1_6k4e7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2110250173]

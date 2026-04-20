@@ -27,6 +27,13 @@ func _update_visual() -> void:
 	_sprite.play("on" if is_on else "off")
 
 
+func set_timeline_active(active: bool) -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT if active else Node.PROCESS_MODE_DISABLED
+	if not active:
+		_player_in_range = false
+	for shape in find_children("*", "CollisionShape2D", true, false):
+		shape.set_deferred("disabled", !active)
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		_player_in_range = true

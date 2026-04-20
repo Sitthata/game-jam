@@ -10,7 +10,7 @@ region = Rect2(49, 1, 14, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8sn8"]
 size = Vector2(14, 11)
 
-[node name="Vase" type="CharacterBody2D" unique_id=491138248]
+[node name="Vase" type="CharacterBody2D" unique_id=491138248 groups=["timeline_object"]]
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
