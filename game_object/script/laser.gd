@@ -9,8 +9,18 @@ extends Node2D
 @onready var _glow_line: Line2D = $GlowLine
 @onready var _area: Area2D = $Area2D
 @onready var _collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
+var _active: bool = true
 
 var _exclude_rids: Array[RID] = []
+
+func set_active(active: bool) -> void:
+	_active = active
+	_line.visible = active
+	_glow_line.visible = active
+	_area.monitoring = active
+	if not active:
+		_line.points = []
+		_glow_line.points = []
 
 func _ready() -> void:
 	_collision_shape.shape = _collision_shape.shape.duplicate()
@@ -23,7 +33,8 @@ func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		if not _line or not _glow_line:
 			return
-	_update_beam()
+	if _active:
+		_update_beam()
 
 func _update_beam() -> void:
 	var from = global_position
@@ -63,3 +74,7 @@ func _update_beam() -> void:
 func _on_area_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and spawn_point:
 		body.global_position = spawn_point.global_position
+
+
+func _on_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

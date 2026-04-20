@@ -13,12 +13,10 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	_bodies_on_plate += 1
 	_update_state()
-	print("Active: ", _bodies_on_plate)
 
 func _on_body_exited(body: Node2D) -> void:
 	_bodies_on_plate = max(0, _bodies_on_plate - 1)
 	_update_state()
-	print("Active: ", _bodies_on_plate)
 
 func _update_state() -> void:
 	if _bodies_on_plate == 0:

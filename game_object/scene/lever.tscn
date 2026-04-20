@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://pvxtb2tj457"]
+
+[ext_resource type="Script" uid="uid://cr8ufukqj6lx8" path="res://game_object/script/lever.gd" id="1_6k4e7"]
+[ext_resource type="Texture2D" uid="uid://px1pr1vcm2xp" path="res://assets/tilemap/switches/Dungeon Assets 32x32.png" id="1_nu5vf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k4e7"]
+atlas = ExtResource("1_nu5vf")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8pg5"]
+atlas = ExtResource("1_nu5vf")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5762f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k4e7")
+}],
+"loop": false,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8pg5")
+}],
+"loop": false,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f8pg5"]
+radius = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nu5vf"]
+size = Vector2(13.5, 7)
+
+[node name="Lever" type="Area2D" unique_id=62831499]
+script = ExtResource("1_6k4e7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2110250173]
+sprite_frames = SubResource("SpriteFrames_5762f")
+animation = &"on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1559069280]
+visible = false
+shape = SubResource("CircleShape2D_f8pg5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=509700915]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=843331494]
+texture_filter = 1
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_nu5vf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
