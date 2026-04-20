@@ -74,3 +74,58 @@ player.tscn
 - Claude writes scripts and input map entries
 - User paints tiles and sets up TileSet resources in the Godot editor
 - TileMapLayers are always grouped one level deep under `Present` or `Past` — `_set_timeline_active()` relies on this
+
+<!-- GSD:project-start source:PROJECT.md -->
+## Project
+
+**Freezing Point**
+
+A top-down 2D puzzle game built for a game jam (deadline: April 30, 2026). The player presses Q to swap between two timelines — Present and Past — while keeping their world position. Walls appear and disappear, paths open and close, and hazards exist only in one timeline. The goal is to navigate 4 chained puzzle rooms by leveraging the timeline difference. Inspired by *Effect and Cause* from Titanfall 2.
+
+**Core Value:** The timeline swap must feel responsive and surprising — every room should have at least one "aha" moment where swapping solves something the player couldn't do otherwise.
+
+### Constraints
+
+- **Timeline:** April 30, 2026 deadline — 10 days, no slip
+- **Scope lock:** No new mechanics or features; finish and polish what exists
+- **Engine:** Godot 4.6.2 — all code must target this version
+- **Team size:** 3 people, part-time jam cadence
+<!-- GSD:project-end -->
+
+<!-- GSD:stack-start source:STACK.md -->
+## Technology Stack
+
+Technology stack not yet documented. Will populate after codebase mapping or first phase.
+<!-- GSD:stack-end -->
+
+<!-- GSD:conventions-start source:CONVENTIONS.md -->
+## Conventions
+
+Conventions not yet established. Will populate as patterns emerge during development.
+<!-- GSD:conventions-end -->
+
+<!-- GSD:architecture-start source:ARCHITECTURE.md -->
+## Architecture
+
+Architecture not yet mapped. Follow existing patterns found in the codebase.
+<!-- GSD:architecture-end -->
+
+<!-- GSD:workflow-start source:GSD defaults -->
+## GSD Workflow Enforcement
+
+Before using Edit, Write, or other file-changing tools, start work through a GSD command so planning artifacts and execution context stay in sync.
+
+Use these entry points:
+- `/gsd:quick` for small fixes, doc updates, and ad-hoc tasks
+- `/gsd:debug` for investigation and bug fixing
+- `/gsd:execute-phase` for planned phase work
+
+Do not make direct repo edits outside a GSD workflow unless the user explicitly asks to bypass it.
+<!-- GSD:workflow-end -->
+
+<!-- GSD:profile-start -->
+## Developer Profile
+
+> Profile not yet configured. Run `/gsd:profile-user` to generate your developer profile.
+> This section is managed by `generate-claude-profile` -- do not edit manually.
+<!-- GSD:profile-end -->
