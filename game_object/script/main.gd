@@ -8,7 +8,6 @@ extends Node
 var in_present: bool = true
 
 func _ready() -> void:
-	_apply_timeline_state()
 	player.global_position = spawn_point.global_position
 	
 

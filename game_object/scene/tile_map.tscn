@@ -117,7 +117,7 @@ visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1731432320]
-position = Vector2(528, -464)
+position = Vector2(304, -200)
 
 [connection signal="pressed" from="PressurePlate" to="Door" method="open"]
 [connection signal="pressed" from="PressurePlate" to="Door2" method="close"]
