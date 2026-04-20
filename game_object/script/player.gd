@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _effect_sprite = $EffectSprite
 
+var _last_dir: String = "front"
+
 func _ready() -> void:
 	add_to_group("player")
 
@@ -35,10 +37,13 @@ func _physics_process(delta: float) -> void:
 		if abs(velocity.y) >= abs(velocity.x):
 			if velocity.y > 0:
 				_animated_sprite.play("walk_front")
+				_last_dir = "front"
 			else:
 				_animated_sprite.play("walk_back")
+				_last_dir = "back"
 		else:
 			_animated_sprite.play("walk_side")
 			_animated_sprite.flip_h = velocity.x > 0
+			_last_dir = "side"
 	else:
-		_animated_sprite.play("idle")
+		_animated_sprite.play("idle_" + _last_dir)
