@@ -75,6 +75,15 @@ player.tscn
 - User paints tiles and sets up TileSet resources in the Godot editor
 - TileMapLayers are always grouped one level deep under `Present` or `Past` — `_set_timeline_active()` relies on this
 
+## Godot Editor Workflow — IMPORTANT
+The primary workspace is the **Godot Editor**. Claude must never create `.tscn` files from scratch.
+
+Instead, when scene changes are needed:
+1. Write or edit the `.gd` script only
+2. Provide step-by-step Godot Editor instructions for any node/scene setup the user must do manually (e.g. "In the Godot Editor: add a Marker2D child to LaserRoom, name it `RespawnPoint`, set position to X/Y")
+
+This applies to all scene work: adding nodes, setting properties, wiring signals, creating new scenes. **Scripts = Claude. Scenes = user in editor.**
+
 <!-- GSD:project-start source:PROJECT.md -->
 ## Project
 

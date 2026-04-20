@@ -88,6 +88,7 @@ Interactive objects inside a room side use the `timeline_object` group and imple
 - **Scope lock:** No new mechanics or features; finish and polish what exists
 - **Engine:** Godot 4.6.2 — all code must target this version
 - **Team size:** 3 people, part-time jam cadence
+- **Editor workflow:** Claude writes `.gd` scripts only — never generates `.tscn` files from scratch. Any scene setup is given as step-by-step Godot Editor instructions for the programmer to apply manually.
 
 ## Key Decisions
 
