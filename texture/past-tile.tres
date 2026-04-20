@@ -1,10 +1,10 @@
-[gd_resource type="TileSet" format=3 uid="uid://b6kryu7eqktvv"]
+[gd_resource type="TileSet" format=3 uid="uid://bxsmrig0ay4dp"]
 
-[ext_resource type="Texture2D" uid="uid://cyq0djnhgnwhx" path="res://assets/tilemap/Set 1.0.png" id="1_anu0u"]
-[ext_resource type="Texture2D" uid="uid://cf0uchco7ydcu" path="res://assets/tilemap/Set 1.1.png" id="2_ml1fd"]
-[ext_resource type="Texture2D" uid="uid://ddcwl0436hpds" path="res://assets/tilemap/Torch Yellow L.png" id="3_fprje"]
-[ext_resource type="Texture2D" uid="uid://cdy8uj45qp5ui" path="res://assets/tilemap/Button.png" id="3_ml1fd"]
-[ext_resource type="Texture2D" uid="uid://u2dc6ni7sptl" path="res://assets/tilemap/Vase Shine Anim.png" id="4_pjscl"]
+[ext_resource type="Texture2D" uid="uid://cyq0djnhgnwhx" path="res://assets/tilemap/Set 1.0.png" id="1_v82wy"]
+[ext_resource type="Texture2D" uid="uid://cf0uchco7ydcu" path="res://assets/tilemap/Set 1.1.png" id="2_c3762"]
+[ext_resource type="Texture2D" uid="uid://cdy8uj45qp5ui" path="res://assets/tilemap/Button.png" id="3_iqdhp"]
+[ext_resource type="Texture2D" uid="uid://ddcwl0436hpds" path="res://assets/tilemap/Torch Yellow L.png" id="4_ggrla"]
+[ext_resource type="Texture2D" uid="uid://u2dc6ni7sptl" path="res://assets/tilemap/Vase Shine Anim.png" id="5_fosvb"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_idqjq"]
 polygon = PackedVector2Array(2.666667, 2.666667, 8, 2.666667, 8, 8, 2.666667, 8)
@@ -32,7 +32,7 @@ polygon = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, 3.931837, 0.5930042, 3.7982
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmxx0"]
 resource_name = "wall"
-texture = ExtResource("1_anu0u")
+texture = ExtResource("1_v82wy")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -131,7 +131,7 @@ texture = ExtResource("1_anu0u")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tq6m3"]
 resource_name = "texture"
-texture = ExtResource("2_ml1fd")
+texture = ExtResource("2_c3762")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -261,14 +261,14 @@ texture = ExtResource("2_ml1fd")
 17:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fprje"]
-texture = ExtResource("3_ml1fd")
+texture = ExtResource("3_iqdhp")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rqwo"]
 resource_name = "touches"
-texture = ExtResource("3_fprje")
+texture = ExtResource("4_ggrla")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -280,7 +280,7 @@ texture = ExtResource("3_fprje")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7um3f"]
 resource_name = "vase"
-texture = ExtResource("4_pjscl")
+texture = ExtResource("5_fosvb")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.7856503, -6.968088, 2.8529205, -6.671321, 3.958994, -2.834166, 6.0184345, -0.7359829, 6.0680466, 4.5475197, 4.310503, 7.058297, -4.1759243, 7.058297, -6.5360546, 5.451399, -6.3468523, -1.3295174, -4.1257086, -2.482657)
 1:0/0 = 0
@@ -316,7 +316,7 @@ texture = ExtResource("4_pjscl")
 
 [resource]
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_kmxx0")
 sources/1 = SubResource("TileSetAtlasSource_tq6m3")

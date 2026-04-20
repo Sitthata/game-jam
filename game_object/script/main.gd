@@ -26,6 +26,10 @@ func _apply_timeline_state() -> void:
 	player.play_swap_effect()
 	_set_timeline_active(present, in_present)
 	_set_timeline_active(past, !in_present)
+	# Layer 1=present, 2=past, 3(bit)=player, 4(bit)=global
+	player.collision_mask = (1 if in_present else 2) | 4 | 8
+	
+	print(player.collision_mask)
 
 
 func _set_timeline_active(timeline: Node2D, active: bool) -> void:
@@ -33,16 +37,6 @@ func _set_timeline_active(timeline: Node2D, active: bool) -> void:
 	for child in timeline.get_children():
 		if child is TileMapLayer:
 			child.collision_enabled = active
-		elif child is CollisionObject2D:
-			for shape in child.get_children():
-				if shape is CollisionShape2D:
-					shape.set_deferred("disabled", !active)
-		elif child is Node2D:
-			child.process_mode = Node.PROCESS_MODE_INHERIT if active else Node.PROCESS_MODE_DISABLED
-			for obj in child.find_children("*", "CollisionObject2D", true, false):
-				for shape in obj.get_children():
-					if shape is CollisionShape2D:
-						shape.set_deferred("disabled", !active)
 
 func _has_collision_at_player(timeline: Node2D) -> bool:
 	for layer in timeline.get_children():
