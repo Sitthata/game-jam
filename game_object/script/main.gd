@@ -19,6 +19,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		in_present = !in_present
 		_apply_timeline_state()
+		if _is_void_at_player():
+			_do_fall_and_respawn()
 
 
 func _apply_timeline_state() -> void:
@@ -43,6 +45,41 @@ func _deactivate_object(node: Node, active: bool) -> void:
 	node.process_mode = Node.PROCESS_MODE_INHERIT if active else Node.PROCESS_MODE_DISABLED
 	for shape in node.find_children("*", "CollisionShape2D", true, false):
 		shape.set_deferred("disabled", !active)
+
+func _is_void_at_player() -> bool:
+	var timeline = present if in_present else past
+	for layer in timeline.get_children():
+		if layer is TileMapLayer:
+			var map_pos = layer.local_to_map(layer.to_local(player.global_position))
+			var tile_data = layer.get_cell_tile_data(map_pos)
+			if tile_data != null and tile_data.get_collision_polygons_count(0) > 0:
+				return false
+	var side_name = "Present" if in_present else "Past"
+	for room in get_tree().get_nodes_in_group("puzzle_room"):
+		var side = room.get_node_or_null(side_name)
+		if side == null:
+			continue
+		for layer in side.get_children():
+			if layer is TileMapLayer:
+				var map_pos = layer.local_to_map(layer.to_local(player.global_position))
+				var tile_data = layer.get_cell_tile_data(map_pos)
+				if tile_data != null and tile_data.get_collision_polygons_count(0) > 0:
+					return false
+	return true
+
+func _do_fall_and_respawn() -> void:
+	var respawn_pos: Vector2 = player.global_position  # fallback: stay in place
+	var best_dist: float = INF
+	for marker in get_tree().get_nodes_in_group("respawn_point"):
+		var d = player.global_position.distance_to(marker.global_position)
+		if d < best_dist:
+			best_dist = d
+			respawn_pos = marker.global_position
+	if best_dist == INF:
+		push_warning("No respawn_point group members found in scene — player stays in place after fall")
+	player.play_fall_animation(func():
+		player.global_position = respawn_pos
+	)
 
 func _has_collision_at_player(timeline: Node2D) -> bool:
 	for layer in timeline.get_children():

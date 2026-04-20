@@ -10,6 +10,12 @@ var _last_dir: String = "front"
 func _ready() -> void:
 	add_to_group("player")
 
+func play_fall_animation(callback: Callable) -> void:
+	_animated_sprite.play("fall")
+	_animated_sprite.animation_finished.connect(func():
+		callback.call()
+	, CONNECT_ONE_SHOT)
+
 func play_swap_effect() -> void:
 	_animated_sprite.visible = false
 	_effect_sprite.visible = true
