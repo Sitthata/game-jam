@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 timeline_object=""
 puzzle_room=""
+respawn_point=""
 
 [input]
 

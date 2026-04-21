@@ -52,4 +52,5 @@ func _physics_process(delta: float) -> void:
 			_animated_sprite.flip_h = velocity.x > 0
 			_last_dir = "side"
 	else:
-		_animated_sprite.play("idle_" + _last_dir)
+		#_animated_sprite.play("idle_" + _last_dir)
+		_animated_sprite.play("idle")

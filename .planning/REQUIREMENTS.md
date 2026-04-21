@@ -8,11 +8,11 @@
 
 ### Animation
 
-- [ ] **ANIM-01**: Player displays correct directional idle frame (side/front/back) when velocity is zero, based on last movement direction
+- [x] **ANIM-01**: Player displays correct directional idle frame (side/front/back) when velocity is zero, based on last movement direction
 
 ### Gameplay
 
-- [ ] **GAME-01**: When player swaps timeline and occupies a void/hazard tile, play "fall" animation, wait briefly, then teleport player to nearest Marker2D respawn point
+- [x] **GAME-01**: When player swaps timeline and occupies a void/hazard tile, play "fall" animation, wait briefly, then teleport player to nearest Marker2D respawn point
 - [ ] **GAME-02**: Player can press a key to reset the current puzzle room to its initial state when stuck
 
 ### Rooms
@@ -53,8 +53,8 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ANIM-01 | Phase 1 | Pending |
-| GAME-01 | Phase 1 | Pending |
+| ANIM-01 | Phase 1 | Complete |
+| GAME-01 | Phase 1 | Complete |
 | GAME-02 | Phase 1 | Pending |
 | ROOM-01 | Phase 2 | Pending |
 | ROOM-02 | Phase 2 | Pending |
