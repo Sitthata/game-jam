@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 @export var speed = 200
 @export var push_speed = 50
+@export var camera_look_strength: float = 0.3
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _effect_sprite = $EffectSprite
+@onready var _camera = $Camera2D
 
 var _last_dir: String = "front"
 
@@ -25,8 +27,13 @@ func play_swap_effect() -> void:
 		_animated_sprite.visible = true
 	, CONNECT_ONE_SHOT)
 
+func _process(_delta: float) -> void:
+	var visible_half = get_viewport_rect().size / 2.0 / _camera.zoom
+	var mouse_offset = get_global_mouse_position() - global_position
+	_camera.offset = mouse_offset / visible_half * camera_look_strength
+
 func _physics_process(delta: float) -> void:
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 	move_and_slide()
 	
