@@ -8,6 +8,8 @@ extends Node
 var in_present: bool = true
 var _is_falling: bool = false
 
+@export var reset_radius: float = 400.0
+
 func _ready() -> void:
 	player.global_position = spawn_point.global_position
 	_set_timeline_active(present, in_present)
@@ -17,7 +19,9 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("timeline_swap"):
+	if event.is_action_pressed("reset"):
+		_reset_vases()
+	elif event.is_action_pressed("timeline_swap"):
 		var destination = past if in_present else present
 		if _has_collision_at_player(destination):
 			print("can't jump")
@@ -74,6 +78,12 @@ func _do_fall_and_respawn() -> void:
 		push_warning("No respawn_point group members found in scene — player stays in place after fall")
 	player.global_position = respawn_pos
 	_is_falling = false
+
+func _reset_vases() -> void:
+	for vase in get_tree().get_nodes_in_group("resettable"):
+		if vase.global_position.distance_to(player.global_position) <= reset_radius:
+			if vase.has_method("reset"):
+				vase.reset()
 
 func _has_collision_at_player(timeline: Node2D) -> bool:
 	for layer in timeline.get_children():

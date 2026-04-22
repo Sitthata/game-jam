@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5exy38nu84u1" path="res://game_object/script/vase.gd" id="1_y28lw"]
 [ext_resource type="Texture2D" uid="uid://u2dc6ni7sptl" path="res://assets/tilemap/Vase Shine Anim.png" id="2_tvxo7"]
+[ext_resource type="Texture2D" uid="uid://cles3b3qn8ki8" path="res://assets/character/Characters (FrostPunk)/jump.png" id="3_un7lw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1rscs"]
 atlas = ExtResource("2_tvxo7")
@@ -10,7 +11,90 @@ region = Rect2(49, 1, 14, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8sn8"]
 size = Vector2(14, 11)
 
-[node name="Vase" type="CharacterBody2D" unique_id=491138248 groups=["timeline_object"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl5qd"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek41f"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khis8"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b88wv"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgbbb"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_331ug"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny14h"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibah8"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iwfv"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwsg1"]
+atlas = ExtResource("3_un7lw")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n857x"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl5qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek41f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khis8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b88wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgbbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_331ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny14h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibah8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iwfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwsg1")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 18.0
+}]
+
+[node name="Vase" type="CharacterBody2D" unique_id=491138248 groups=["resettable", "timeline_object"]]
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -22,3 +106,11 @@ texture = SubResource("AtlasTexture_1rscs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571717329]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_m8sn8")
+
+[node name="EffectSprite" type="AnimatedSprite2D" parent="." unique_id=1957176578 groups=["resettable"]]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_n857x")
+animation = &"jump"
+frame = 9
+frame_progress = 1.0
