@@ -426,7 +426,7 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_i3pqv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2017924944]
-zoom = Vector2(8, 8)
+zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 

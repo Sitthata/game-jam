@@ -23,6 +23,7 @@ tile_set = ExtResource("1_tccfk")
 tile_set = ExtResource("1_tccfk")
 
 [node name="Past" type="Node2D" parent="." unique_id=455733188]
+visible = false
 
 [node name="Void" type="TileMapLayer" parent="Past" unique_id=1518619362]
 tile_set = ExtResource("1_tccfk")
