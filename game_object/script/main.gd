@@ -76,8 +76,14 @@ func _do_fall_and_respawn() -> void:
 			respawn_pos = marker.global_position
 	if best_dist == INF:
 		push_warning("No respawn_point group members found in scene — player stays in place after fall")
-	player.global_position = respawn_pos
-	_is_falling = false
+	
+	player.play_fall_animation(func():
+		player.global_position = respawn_pos
+		_is_falling = false
+	)
+	
+	#player.global_position = respawn_pos
+	#_is_falling = false
 
 func _reset_vases() -> void:
 	for vase in get_tree().get_nodes_in_group("resettable"):

@@ -8,21 +8,35 @@ extends CharacterBody2D
 @onready var _camera = $Camera2D
 
 var _last_dir: String = "front"
+var _is_playing_fall: bool = false
+var _is_playing_swap: bool = false
 
 func _ready() -> void:
 	add_to_group("player")
 
 func play_fall_animation(callback: Callable) -> void:
+	_is_playing_fall = true
+	if _is_playing_swap:
+		_effect_sprite.animation_finished.connect(func():
+			_do_play_fall(callback)
+		, CONNECT_ONE_SHOT)
+	else:
+		_do_play_fall(callback)
+
+func _do_play_fall(callback: Callable) -> void:
 	_animated_sprite.play("fall")
 	_animated_sprite.animation_finished.connect(func():
+		_is_playing_fall = false
 		callback.call()
 	, CONNECT_ONE_SHOT)
 
 func play_swap_effect() -> void:
+	_is_playing_swap = true
 	_animated_sprite.visible = false
 	_effect_sprite.visible = true
 	_effect_sprite.play("jump")
 	_effect_sprite.animation_finished.connect(func():
+		_is_playing_swap = false
 		_effect_sprite.visible = false
 		_animated_sprite.visible = true
 	, CONNECT_ONE_SHOT)
@@ -46,6 +60,8 @@ func _physics_process(delta: float) -> void:
 				collider.push(col.get_normal() * -1, push_speed)
 
 
+	if _is_playing_fall:
+		return
 	if velocity.length() > 0:
 		if abs(velocity.y) >= abs(velocity.x):
 			if velocity.y > 0:
@@ -59,5 +75,4 @@ func _physics_process(delta: float) -> void:
 			_animated_sprite.flip_h = velocity.x > 0
 			_last_dir = "side"
 	else:
-		#_animated_sprite.play("idle_" + _last_dir)
-		_animated_sprite.play("idle")
+		_animated_sprite.play("idle_" + _last_dir)
