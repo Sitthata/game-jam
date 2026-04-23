@@ -32,7 +32,7 @@ collision_visibility_mode = 1
 
 [node name="Vase" parent="Present" unique_id=491138248 instance=ExtResource("3_jduw5")]
 z_index = 1
-position = Vector2(424, 88)
+position = Vector2(376, 136)
 
 [node name="Vase2" parent="Present" unique_id=619930199 instance=ExtResource("3_jduw5")]
 z_index = 1
@@ -43,6 +43,7 @@ z_index = 1
 position = Vector2(88, -480)
 
 [node name="Past" type="Node2D" parent="." unique_id=1774968678]
+visible = false
 visible = false
 
 [node name="Shadow" type="TileMapLayer" parent="Past" unique_id=791528284]
