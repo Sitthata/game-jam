@@ -114,6 +114,7 @@ scale = Vector2(1, 1)
 speed = 100
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1515780715]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1731432320 groups=["respawn_point"]]
