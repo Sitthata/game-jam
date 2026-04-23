@@ -112,7 +112,6 @@ position = Vector2(344, -504)
 position = Vector2(888, -72)
 scale = Vector2(1, 1)
 speed = 100
-camera_look_strength = 20.0
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1515780715]
 visible = false

@@ -411,6 +411,7 @@ animations = [{
 scale = Vector2(2, 2)
 collision_mask = 3
 script = ExtResource("1_onrkg")
+camera_look_strength = 20.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=729007057]
 texture_filter = 1
