@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbi5jmydoek22"
-path="res://.godot/imported/BIG ROCK.png-92017d79610ecd50d77012f24096b8c2.ctex"
+uid="uid://ba2g85r64q542"
+path="res://.godot/imported/Main Menu Wallapaper@3x-100.jpg-5e4bf1b67ed43402d28294fe00ab768a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_object/scene/BIG ROCK.png"
-dest_files=["res://.godot/imported/BIG ROCK.png-92017d79610ecd50d77012f24096b8c2.ctex"]
+source_file="res://assets/main_menu/Main Menu Wallapaper@3x-100.jpg"
+dest_files=["res://.godot/imported/Main Menu Wallapaper@3x-100.jpg-5e4bf1b67ed43402d28294fe00ab768a.ctex"]
 
 [params]
 

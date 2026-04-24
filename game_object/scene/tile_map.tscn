@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://pmtt6hgqko4" path="res://texture/pat-tile.tres" id="2_35kre"]
 [ext_resource type="PackedScene" uid="uid://bopyp2mjnv2oa" path="res://game_object/scene/vase.tscn" id="3_jduw5"]
 [ext_resource type="PackedScene" uid="uid://bayn0ej2rum00" path="res://game_object/scene/laser_room.tscn" id="4_j75sf"]
+[ext_resource type="Material" uid="uid://dor0tdaityhby" path="res://texture/snow_particle.tres" id="4_smn66"]
 [ext_resource type="PackedScene" uid="uid://duqamnr4ohdc1" path="res://game_object/scene/door.tscn" id="5_j75sf"]
 [ext_resource type="PackedScene" uid="uid://c7duadhriltab" path="res://game_object/scene/pressure_plate.tscn" id="6_7f1cr"]
 [ext_resource type="PackedScene" uid="uid://c5bee8axl4u3t" path="res://game_object/scene/touch.tscn" id="8_7f1cr"]
@@ -43,8 +44,19 @@ position = Vector2(88, -272)
 z_index = 1
 position = Vector2(88, -480)
 
+[node name="SnowLayer" type="CanvasLayer" parent="Present" unique_id=1853432900]
+layer = 2
+offset = Vector2(640, -10)
+transform = Transform2D(1, 0, 0, 1, 640, -10)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Present/SnowLayer" unique_id=1607204149]
+amount = 150
+lifetime = 8.0
+speed_scale = 2.0
+randomness = 1.0
+process_material = ExtResource("4_smn66")
+
 [node name="Past" type="Node2D" parent="." unique_id=1774968678]
-visible = false
 
 [node name="Shadow" type="TileMapLayer" parent="Past" unique_id=791528284]
 tile_map_data = PackedByteArray("AAATAB0AAgAIAAQAAAATAB4AAgAIAAQAAAAYAB0AAgAIAAQAAAAYAB4AAgAIAAQAAAASABwAAgAIAAQAAAARABsAAgAIAAQAAAAZABwAAgAIAAQAAAAaABsAAgAIAAQAAAAbABoAAgAIAAQAAAAQABoAAgAIAAQAAAAQABYAAgAIAAQAAAAQABcAAgAIAAQAAAAQABgAAgAIAAQAAAAQABkAAgAIAAQAAAAbABYAAgAIAAQAAAAbABcAAgAIAAQAAAAbABgAAgAIAAQAAAAbABkAAgAIAAQAAAAaABUAAgAIAAQAAAAZABQAAgAIAAQAAAASABQAAgAIAAQAAAARABUAAgAIAAQAAAATABMAAgAIAAQAAAATAA8AAgAIAAQAAAATABAAAgAIAAQAAAATABEAAgAIAAQAAAATABIAAgAIAAQAAAAYABMAAgAIAAQAAAAYABIAAgAIAAQAAAAYABEAAgAIAAQAAAAYABAAAgAIAAQAAAAYAA8AAgAIAAQAAAATAA4AAgAIAAQAAAATAA0AAgAIAAQAAAATAAwAAgAIAAQAAAATAAsAAgAIAAQAAAAYAAsAAgAIAAQAAAAYAAwAAgAIAAQAAAAYAA0AAgAIAAQAAAAYAA4AAgAIAAQAAAARAAoAAgAIAAQAAAAaAAoAAgAIAAQAAAARAAsAAgAIAAQAAAAaAAsAAgAIAAQAAAAQAAoAAgAIAAQAAAAPAAoAAgAIAAQAAAAOAAoAAgAIAAQAAAAOAAkAAgAIAAQAAAAOAAgAAgAIAAQAAAAOAAcAAgAIAAQAAAAOAAYAAgAIAAQAAAAOAAUAAgAIAAQAAAAOAAQAAgAIAAQAAAAOAAMAAgAIAAQAAAAOAAIAAgAIAAQAAAAbAAoAAgAIAAQAAAAcAAoAAgAIAAQAAAAdAAoAAgAIAAQAAAAdAAkAAgAIAAQAAAAdAAgAAgAIAAQAAAAdAAcAAgAIAAQAAAAdAAYAAgAIAAQAAAAdAAUAAgAIAAQAAAAdAAQAAgAIAAQAAAAdAAMAAgAIAAQAAAAdAAIAAgAIAAQAAAAdAAEAAgAIAAQAAAAcAAEAAgAIAAQAAAAbAAEAAgAIAAQAAAAaAAEAAgAIAAQAAAAZAAEAAgAIAAQAAAAYAAEAAgAIAAQAAAAXAAEAAgAIAAQAAAAWAAEAAgAIAAQAAAAVAAEAAgAIAAQAAAAVAAAAAgAIAAQAAAAVAP//AgAIAAQAAAAVAP7/AgAIAAQAAAAVAP3/AgAIAAQAAAAVAPz/AgAIAAQAAAAQAPz/AgAIAAQAAAAQAP3/AgAIAAQAAAAQAP7/AgAIAAQAAAAQAP//AgAIAAQAAAAQAAAAAgAIAAQAAAAQAAEAAgAIAAQAAAAPAAEAAgAIAAQAAAAOAAEAAgAIAAQAAAA=")
@@ -110,7 +122,7 @@ position = Vector2(88, -504)
 position = Vector2(344, -504)
 
 [node name="Player" parent="." unique_id=526917429 instance=ExtResource("10_i6cpi")]
-position = Vector2(264, -288)
+position = Vector2(352, 424)
 scale = Vector2(1, 1)
 speed = 100
 
@@ -124,8 +136,8 @@ light_energy = 1.0
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1515780715]
 color = Color(0.12749338, 0.33192366, 0.49861306, 1)
 
-[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1731432320 groups=["respawn_point"]]
-position = Vector2(552, -464)
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1061030642]
+position = Vector2(352, 440)
 
 [connection signal="pressed" from="PressurePlate" to="Door" method="open"]
 [connection signal="pressed" from="PressurePlate" to="Door2" method="close"]

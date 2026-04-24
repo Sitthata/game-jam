@@ -1,0 +1,29 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://dor0tdaityhby"]
+
+[sub_resource type="Curve" id="Curve_gayli"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.74404764, 0.79295206), 0.0, 0.0, 0, 0, Vector2(1, 0.59079504), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_a4bvv"]
+curve = SubResource("Curve_gayli")
+
+[sub_resource type="Gradient" id="Gradient_0arkj"]
+colors = PackedColorArray(0.9764706, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sadqo"]
+gradient = SubResource("Gradient_0arkj")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(800, 1, 1)
+gravity = Vector3(60, 450, 0)
+scale_min = 3.0
+scale_max = 8.0
+color_initial_ramp = SubResource("GradientTexture1D_sadqo")
+alpha_curve = SubResource("CurveTexture_a4bvv")
+turbulence_enabled = true
+turbulence_noise_strength = 2.0
+turbulence_noise_scale = 1.0
+turbulence_noise_speed_random = 0.02
+turbulence_influence_max = 0.2

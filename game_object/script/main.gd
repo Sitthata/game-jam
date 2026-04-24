@@ -46,6 +46,8 @@ func _set_timeline_active(timeline: Node2D, active: bool) -> void:
 	for child in timeline.get_children():
 		if child is TileMapLayer:
 			child.collision_enabled = active
+		elif child is CanvasLayer:
+			child.visible = active
 		elif child.is_in_group("timeline_object"):
 			if child.has_method("set_timeline_active"):
 				child.set_timeline_active(active)   # custom override
