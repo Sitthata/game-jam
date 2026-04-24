@@ -118,12 +118,14 @@ speed = 100
 position = Vector2(264, 88)
 flip_h = false
 light_offset = Vector2(0, 8)
+light_scale = 0.3
+light_energy = 1.0
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1515780715]
 color = Color(0.12749338, 0.33192366, 0.49861306, 1)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1731432320 groups=["respawn_point"]]
-position = Vector2(304, -264)
+position = Vector2(552, -464)
 
 [connection signal="pressed" from="PressurePlate" to="Door" method="open"]
 [connection signal="pressed" from="PressurePlate" to="Door2" method="close"]

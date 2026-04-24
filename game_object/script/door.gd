@@ -4,6 +4,8 @@ extends StaticBody2D
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _occluder: LightOccluder2D = $LightOccluder2D
 
+var is_open: bool = true
+
 func _ready() -> void:
 	_collision.set_deferred("disabled", true)
 	_occluder.visible = false
@@ -11,17 +13,23 @@ func _ready() -> void:
 	_sprite.frame = 0
 
 func open() -> void:
+	if is_open:
+		return
+	is_open = true
 	_collision.set_deferred("disabled", true)
 	_occluder.visible = false
 	_sprite.play("open")
 
 func close() -> void:
+	if not is_open:
+		return
+	is_open = false
 	_collision.set_deferred("disabled", false)
 	_occluder.visible = true
 	_sprite.play_backwards("open")  # rewinds the open animation as a close
 
-func set_open(open: bool) -> void:
-	if open:
+func set_open(value: bool) -> void:
+	if value:
 		open()
 	else:
 		close()

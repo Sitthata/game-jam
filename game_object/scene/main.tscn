@@ -99,3 +99,5 @@ light_offset = Vector2(0, 0.8)
 
 [connection signal="toggled" from="Present/Lever2" to="Door" method="set_open"]
 [connection signal="toggled" from="Past/Lever" to="Past/Laser" method="set_active"]
+[connection signal="pressed" from="PressurePlate" to="Door" method="open"]
+[connection signal="released" from="PressurePlate" to="Door" method="close"]
