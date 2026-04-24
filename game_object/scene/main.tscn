@@ -90,6 +90,7 @@ camera_look_strength = 50.0
 position = Vector2(520, 288)
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1820874862]
+visible = false
 color = Color(0.12749338, 0.33192366, 0.49861306, 1)
 
 [node name="Touch" parent="." unique_id=436076140 instance=ExtResource("10_ckruv")]

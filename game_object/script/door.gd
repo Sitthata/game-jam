@@ -10,7 +10,7 @@ func _ready() -> void:
 	_collision.set_deferred("disabled", true)
 	_occluder.visible = false
 	_sprite.animation = "open"
-	_sprite.frame = 0
+	_sprite.frame = _sprite.sprite_frames.get_frame_count("open") - 1
 
 func open() -> void:
 	if is_open:

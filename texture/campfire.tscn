@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://q18qbueyn13t"]
+
+[ext_resource type="Texture2D" uid="uid://bbt7asgasdrcw" path="res://assets/element/Campfire.png" id="1_5xkpd"]
+[ext_resource type="Script" uid="uid://bae0fu21n2tjm" path="res://game_object/script/campfire.gd" id="1_q2560"]
+[ext_resource type="Texture2D" uid="uid://c1lt0mw2l7xhq" path="res://assets/effect/Thunder 2D Effect Tutorial.png" id="2_q2560"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at718"]
+atlas = ExtResource("1_5xkpd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8hro"]
+atlas = ExtResource("1_5xkpd")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdy55"]
+atlas = ExtResource("1_5xkpd")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qsmj"]
+atlas = ExtResource("1_5xkpd")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s1mk"]
+atlas = ExtResource("1_5xkpd")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wncph"]
+atlas = ExtResource("1_5xkpd")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lqgk"]
+atlas = ExtResource("1_5xkpd")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7hp5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at718")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8hro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdy55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qsmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s1mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wncph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lqgk")
+}],
+"loop": true,
+"name": &"flame",
+"speed": 12.0
+}]
+
+[node name="Campfire" type="Node2D" unique_id=619536341]
+script = ExtResource("1_q2560")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1224777993]
+sprite_frames = SubResource("SpriteFrames_n7hp5")
+animation = &"flame"
+frame_progress = 0.5180637
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=436093615]
+position = Vector2(0, 16)
+color = Color(0.9607843, 0.7294118, 0.1882353, 1)
+energy = 1.2
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.3
+texture = ExtResource("2_q2560")
+texture_scale = 0.1
