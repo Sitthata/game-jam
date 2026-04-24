@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://j0rjmxo2xaq8" path="res://game_object/script/laser.gd" id="1_jqgmf"]
 [ext_resource type="Texture2D" uid="uid://dubwn781r5ky1" path="res://assets/effect/Flame Hori Effect.png" id="3_pfb7b"]
+[ext_resource type="Texture2D" uid="uid://05ktypcoo0oe" path="res://assets/effect/Particle Black Effect.png" id="4_p1qst"]
 [ext_resource type="Shader" uid="uid://88x3jr5cvu2l" path="res://assets/shader/laser_shader.gdshader" id="4_ys2q7"]
+[ext_resource type="Texture2D" uid="uid://c1lt0mw2l7xhq" path="res://assets/effect/Thunder 2D Effect Tutorial.png" id="5_q3y04"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nwvqd"]
 shader = ExtResource("4_ys2q7")
 shader_parameter/laser_texture = ExtResource("3_pfb7b")
-shader_parameter/scroll_speed = 1.5000000712500001
-shader_parameter/tile_count = 2.50000007125
+shader_parameter/scroll_speed = 2.000000095
+shader_parameter/tile_count = 3.000000095
 
 [sub_resource type="Gradient" id="Gradient_pfb7b"]
 offsets = PackedFloat32Array(0, 0.24581006)
@@ -19,6 +21,73 @@ blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe10x"]
 size = Vector2(300, 4)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q3y04"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_ys2q7"]
+offsets = PackedFloat32Array(0, 0.73741794)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.31532618, 0.699215, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nwvqd"]
+gradient = SubResource("Gradient_ys2q7")
+
+[sub_resource type="Curve" id="Curve_ys2q7"]
+_data = [Vector2(0, 0.4750083), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_nwvqd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_pe10x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_jovmo"]
+curve_x = SubResource("Curve_ys2q7")
+curve_y = SubResource("Curve_nwvqd")
+curve_z = SubResource("Curve_pe10x")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7rtux"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 50.0
+emission_ring_radius = 5.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+spread = 40.0
+initial_velocity_min = -300.0
+initial_velocity_max = -200.0
+radial_velocity_min = 99.99998
+radial_velocity_max = 199.99997
+gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveXYZTexture_jovmo")
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_nwvqd")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pe10x"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_jovmo"]
+_data = [Vector2(0, 0.50297916), 0.0, 0.0, 0, 0, Vector2(0.2485323, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50082755), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7rtux"]
+curve = SubResource("Curve_jovmo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nuw15"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.04
+scale_curve = SubResource("CurveTexture_7rtux")
+color = Color(0.79459536, 0.29225972, 0.25310516, 1)
 
 [node name="Laser" type="Node2D" unique_id=931180747]
 script = ExtResource("1_jqgmf")
@@ -48,5 +117,24 @@ visible = false
 visible = false
 position = Vector2(150, 0)
 shape = SubResource("RectangleShape2D_pe10x")
+
+[node name="HitParticles" type="GPUParticles2D" parent="." unique_id=1984141231]
+material = SubResource("CanvasItemMaterial_q3y04")
+position = Vector2(298, 0)
+amount = 15
+texture = ExtResource("4_p1qst")
+lifetime = 0.08
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_7rtux")
+
+[node name="Flare" type="GPUParticles2D" parent="." unique_id=1025846405]
+material = SubResource("CanvasItemMaterial_pe10x")
+position = Vector2(296, -4.038968e-28)
+scale = Vector2(0.1, 0.1)
+amount = 1
+texture = ExtResource("5_q3y04")
+lifetime = 0.15000000000000002
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_nuw15")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_body_entered"]

@@ -9,6 +9,8 @@ extends Node2D
 @onready var _glow_line: Line2D = $GlowLine
 @onready var _area: Area2D = $Area2D
 @onready var _collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var _hit_particles: GPUParticles2D = $HitParticles
+@onready var _flare: GPUParticles2D = $Flare
 var _active: bool = true
 
 var _exclude_rids: Array[RID] = []
@@ -21,6 +23,8 @@ func set_active(active: bool) -> void:
 	if not active:
 		_line.points = []
 		_glow_line.points = []
+		_hit_particles.emitting = false
+		_flare.emitting = false
 
 func _ready() -> void:
 	_collision_shape.shape = _collision_shape.shape.duplicate()
@@ -52,10 +56,18 @@ func _update_beam() -> void:
 		var result = space_state.intersect_ray(query)
 		if result:
 			end_local = to_local(result.position)
+			_hit_particles.position = end_local
+			_hit_particles.emitting = true
+			_flare.position = end_local
+			_flare.emitting = true
 		else:
 			end_local = Vector2(beam_length, 0)
+			_hit_particles.emitting = false
+			_flare.emitting = false
 	else:
 		end_local = Vector2(beam_length, 0)
+		_hit_particles.emitting = false
+		_flare.emitting = false
 
 	# Visual
 	_line.points = [Vector2.ZERO, end_local]
