@@ -89,6 +89,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u2vvd"]
 size = Vector2(32, 16)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0htcu"]
+polygon = PackedVector2Array(-16, -8, 16, -8, 16, 8, -16, 8)
+
 [node name="Door" type="StaticBody2D" unique_id=190594260]
 z_index = 2
 collision_mask = 0
@@ -100,3 +103,6 @@ animation = &"closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=709317455]
 shape = SubResource("RectangleShape2D_u2vvd")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1819718525]
+occluder = SubResource("OccluderPolygon2D_0htcu")

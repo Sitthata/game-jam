@@ -109,15 +109,15 @@ position = Vector2(88, -504)
 position = Vector2(344, -504)
 
 [node name="Player" parent="." unique_id=526917429 instance=ExtResource("10_i6cpi")]
-position = Vector2(304, 96)
+position = Vector2(264, -288)
 scale = Vector2(1, 1)
 speed = 100
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1515780715]
-color = Color(0.07466568, 0.2210721, 0.33867726, 1)
+color = Color(0.12749338, 0.33192366, 0.49861306, 1)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1731432320 groups=["respawn_point"]]
-position = Vector2(552, -464)
+position = Vector2(304, -248)
 
 [connection signal="pressed" from="PressurePlate" to="Door" method="open"]
 [connection signal="pressed" from="PressurePlate" to="Door2" method="close"]

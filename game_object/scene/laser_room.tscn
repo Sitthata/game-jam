@@ -55,4 +55,8 @@ position = Vector2(576, -88)
 [node name="Marker2D" type="Marker2D" parent="." unique_id=629597349]
 position = Vector2(-256, 0)
 
+[node name="Shadow" type="CanvasModulate" parent="." unique_id=456985159]
+visible = false
+color = Color(0.07466568, 0.2210721, 0.33867726, 1)
+
 [connection signal="toggled" from="p2_lever" to="p2_door" method="set_open"]

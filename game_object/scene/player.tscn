@@ -717,7 +717,7 @@ position_smoothing_speed = 3.0
 energy = 0.6
 shadow_enabled = true
 shadow_filter = 1
-shadow_filter_smooth = 2.0
+shadow_filter_smooth = 1.2
 texture = ExtResource("9_0eg0b")
 texture_scale = 0.4
 
