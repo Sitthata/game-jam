@@ -21,6 +21,7 @@ timeline_object=""
 puzzle_room=""
 respawn_point=""
 resettable=""
+player=""
 
 [input]
 

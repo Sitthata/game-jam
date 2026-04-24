@@ -11,7 +11,14 @@ extends Node2D
 @onready var _collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var _hit_particles: GPUParticles2D = $HitParticles
 @onready var _flare: GPUParticles2D = $Flare
+@onready var _emitter_light: PointLight2D = get_node_or_null("EmitterLight")
+@onready var _hit_light: PointLight2D = get_node_or_null("HitLight")
+@onready var _beam_light: PointLight2D = get_node_or_null("BeamLight")
 var _active: bool = true
+
+# Base half-size of the PointLight2D texture at texture_scale=1.
+# Tune this to match your light texture's natural radius (default Godot circle = 64px).
+const BEAM_LIGHT_BASE_HALF := 64.0
 
 var _exclude_rids: Array[RID] = []
 
@@ -20,18 +27,22 @@ func set_active(active: bool) -> void:
 	_line.visible = active
 	_glow_line.visible = active
 	_area.monitoring = active
+	if _emitter_light: _emitter_light.enabled = active
+	if _beam_light: _beam_light.enabled = active
 	if not active:
 		_line.points = []
 		_glow_line.points = []
 		_hit_particles.emitting = false
 		_flare.emitting = false
+		if _hit_light: _hit_light.enabled = false
 
 func _ready() -> void:
 	_collision_shape.shape = _collision_shape.shape.duplicate()
 
 	if not Engine.is_editor_hint():
 		for node in get_tree().get_nodes_in_group("player"):
-			_exclude_rids.append(node.get_rid())
+			if node is CollisionObject2D:
+				_exclude_rids.append(node.get_rid())
 
 func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -60,14 +71,19 @@ func _update_beam() -> void:
 			_hit_particles.emitting = true
 			_flare.position = end_local
 			_flare.emitting = true
+			if _hit_light:
+				_hit_light.position = end_local
+				_hit_light.enabled = true
 		else:
 			end_local = Vector2(beam_length, 0)
 			_hit_particles.emitting = false
 			_flare.emitting = false
+			if _hit_light: _hit_light.enabled = false
 	else:
 		end_local = Vector2(beam_length, 0)
 		_hit_particles.emitting = false
 		_flare.emitting = false
+		if _hit_light: _hit_light.enabled = false
 
 	# Visual
 	_line.points = [Vector2.ZERO, end_local]
@@ -83,10 +99,18 @@ func _update_beam() -> void:
 	var shape = _collision_shape.shape as RectangleShape2D
 	shape.size = Vector2(length, beam_width)
 
+	# Stretch beam light to cover the full laser line
+	if _beam_light:
+		var base_size := BEAM_LIGHT_BASE_HALF * 2.0 * _beam_light.texture_scale
+		_beam_light.position = midpoint
+		_beam_light.rotation = end_local.angle()
+		_beam_light.scale = Vector2(length / base_size, 1.0)
+
 func _on_area_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D and spawn_point:
-		body.global_position = spawn_point.global_position
+	if body.is_in_group("player") and spawn_point:
+		do_death_and_respawn(body)
 
-
-func _on_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func do_death_and_respawn(player: Node2D) -> void:
+	player.do_play_death(func():
+		player.global_position = spawn_point.global_position
+	)

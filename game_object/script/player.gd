@@ -10,6 +10,7 @@ extends CharacterBody2D
 var _last_dir: String = "front"
 var _is_playing_fall: bool = false
 var _is_playing_swap: bool = false
+var _is_playing_death: bool = false
 
 func _ready() -> void:
 	add_to_group("player")
@@ -30,6 +31,19 @@ func _do_play_fall(callback: Callable) -> void:
 		callback.call()
 	, CONNECT_ONE_SHOT)
 
+func do_play_death(callback: Callable) -> void:
+	_is_playing_death = true
+	_animated_sprite.visible = false
+	_effect_sprite.visible = true
+	_effect_sprite.play("death")
+	_effect_sprite.animation_finished.connect(func():
+		_is_playing_death = false
+		_effect_sprite.visible = false
+		_effect_sprite.modulate = Color.WHITE
+		_animated_sprite.visible = true
+		callback.call()
+	, CONNECT_ONE_SHOT)
+
 func play_swap_effect() -> void:
 	_is_playing_swap = true
 	_animated_sprite.visible = false
@@ -47,6 +61,9 @@ func _process(_delta: float) -> void:
 	_camera.offset = mouse_offset / visible_half * camera_look_strength
 
 func _physics_process(delta: float) -> void:
+	if _is_playing_death:
+		velocity = Vector2.ZERO
+		return
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 	move_and_slide()
@@ -60,7 +77,7 @@ func _physics_process(delta: float) -> void:
 				collider.push(col.get_normal() * -1, push_speed)
 
 
-	if _is_playing_fall:
+	if _is_playing_fall or _is_playing_death:
 		return
 	if velocity.length() > 0:
 		if abs(velocity.y) >= abs(velocity.x):

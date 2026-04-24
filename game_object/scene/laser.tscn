@@ -9,8 +9,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nwvqd"]
 shader = ExtResource("4_ys2q7")
 shader_parameter/laser_texture = ExtResource("3_pfb7b")
-shader_parameter/scroll_speed = 2.000000095
-shader_parameter/tile_count = 3.000000095
+shader_parameter/scroll_speed = 3.0000001425
+shader_parameter/tile_count = 4.000000142499999
 
 [sub_resource type="Gradient" id="Gradient_pfb7b"]
 offsets = PackedFloat32Array(0, 0.24581006)
@@ -19,7 +19,7 @@ colors = PackedColorArray(0.76544684, 0.26580656, 0.17690334, 1, 1, 1, 1, 1)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jqgmf"]
 blend_mode = 1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe10x"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3y04"]
 size = Vector2(300, 4)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q3y04"]
@@ -90,17 +90,19 @@ scale_curve = SubResource("CurveTexture_7rtux")
 color = Color(0.79459536, 0.29225972, 0.25310516, 1)
 
 [node name="Laser" type="Node2D" unique_id=931180747]
+position = Vector2(1, 0)
 script = ExtResource("1_jqgmf")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1098404901]
 material = SubResource("ShaderMaterial_nwvqd")
 points = PackedVector2Array(0, 0, 300, 0)
-width = 50.0
+width = 30.0
 default_color = Color(0.88235295, 0, 0, 1)
 gradient = SubResource("Gradient_pfb7b")
 texture_mode = 2
 
 [node name="GlowLine" type="Line2D" parent="." unique_id=177531483]
+visible = false
 modulate = Color(0.9870468, 0.45926917, 0.5818279, 1)
 self_modulate = Color(0.88741493, 0.5286922, 0.4962952, 1)
 show_behind_parent = true
@@ -111,16 +113,16 @@ default_color = Color(0.19586803, 0.021090686, 0.021090686, 1)
 joint_mode = 2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=285800079]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2118539007]
 visible = false
 position = Vector2(150, 0)
-shape = SubResource("RectangleShape2D_pe10x")
+shape = SubResource("RectangleShape2D_q3y04")
 
 [node name="HitParticles" type="GPUParticles2D" parent="." unique_id=1984141231]
 material = SubResource("CanvasItemMaterial_q3y04")
-position = Vector2(298, 0)
+position = Vector2(62.624363, 9.536743e-07)
+emitting = false
 amount = 15
 texture = ExtResource("4_p1qst")
 lifetime = 0.08
@@ -129,12 +131,26 @@ process_material = SubResource("ParticleProcessMaterial_7rtux")
 
 [node name="Flare" type="GPUParticles2D" parent="." unique_id=1025846405]
 material = SubResource("CanvasItemMaterial_pe10x")
-position = Vector2(296, -4.038968e-28)
+position = Vector2(62.624363, 9.536743e-07)
 scale = Vector2(0.1, 0.1)
+emitting = false
 amount = 1
 texture = ExtResource("5_q3y04")
 lifetime = 0.15000000000000002
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_nuw15")
+
+[node name="HitLight" type="PointLight2D" parent="." unique_id=1465791029]
+position = Vector2(298, 0)
+color = Color(0.88235295, 0, 0, 1)
+energy = 0.6
+texture = ExtResource("5_q3y04")
+texture_scale = 0.1
+
+[node name="BeamLight" type="PointLight2D" parent="." unique_id=924065139]
+position = Vector2(154, 1)
+color = Color(0.88235295, 0, 0, 1)
+texture = ExtResource("5_q3y04")
+texture_scale = 0.03
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_body_entered"]
