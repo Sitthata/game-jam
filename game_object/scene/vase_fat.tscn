@@ -1,53 +1,53 @@
-[gd_scene format=3 uid="uid://bopyp2mjnv2oa"]
+[gd_scene format=3 uid="uid://diewe7xrlssog"]
 
-[ext_resource type="Script" uid="uid://c5exy38nu84u1" path="res://game_object/script/vase.gd" id="1_y28lw"]
-[ext_resource type="Texture2D" uid="uid://3a5erpnoyp0f" path="res://assets/element/Slim Vase (1).png" id="2_un7lw"]
-[ext_resource type="Texture2D" uid="uid://cles3b3qn8ki8" path="res://assets/character/Characters (FrostPunk)/jump.png" id="3_un7lw"]
+[ext_resource type="PackedScene" uid="uid://bopyp2mjnv2oa" path="res://game_object/scene/vase.tscn" id="1_a24p2"]
+[ext_resource type="Texture2D" uid="uid://cles3b3qn8ki8" path="res://assets/character/Characters (FrostPunk)/jump.png" id="2_1vo6g"]
+[ext_resource type="Texture2D" uid="uid://dp7xxuij6lk8w" path="res://assets/element/Fat Vase (1).png" id="2_x86fd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8sn8"]
-size = Vector2(13, 15)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vo6g"]
+size = Vector2(16, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hl5qd"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek41f"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_khis8"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b88wv"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgbbb"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_331ug"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ny14h"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibah8"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3iwfv"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwsg1"]
-atlas = ExtResource("3_un7lw")
+atlas = ExtResource("2_1vo6g")
 region = Rect2(576, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_n857x"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ewjw"]
 animations = [{
 "frames": [],
 "loop": true,
@@ -90,23 +90,17 @@ animations = [{
 "speed": 18.0
 }]
 
-[node name="Vase" type="CharacterBody2D" unique_id=491138248 groups=["resettable", "timeline_object"]]
-collision_layer = 2
-collision_mask = 3
-motion_mode = 1
-script = ExtResource("1_y28lw")
+[node name="VaseFat" unique_id=491138248 instance=ExtResource("1_a24p2")]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=984981102]
-texture = ExtResource("2_un7lw")
+[node name="Sprite2D" parent="." index="0" unique_id=984981102]
+texture = ExtResource("2_x86fd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=571717329]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_m8sn8")
+[node name="CollisionShape2D" parent="." index="1" unique_id=571717329]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1vo6g")
 
-[node name="EffectSprite" type="AnimatedSprite2D" parent="." unique_id=1957176578 groups=["resettable"]]
-texture_filter = 1
-scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_n857x")
-animation = &"jump"
-frame = 9
-frame_progress = 1.0
+[node name="EffectSprite" parent="." index="2" unique_id=1957176578]
+visible = false
+sprite_frames = SubResource("SpriteFrames_8ewjw")
+frame = 0
+frame_progress = 0.0

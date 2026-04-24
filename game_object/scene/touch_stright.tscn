@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://baf72rc6534us"]
+
+[ext_resource type="PackedScene" uid="uid://c5bee8axl4u3t" path="res://game_object/scene/touch.tscn" id="1_djum3"]
+[ext_resource type="Texture2D" uid="uid://cchecfw1fdrue" path="res://assets/tilemap/Torch Yellow.png" id="2_4q6e6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlrre"]
+atlas = ExtResource("2_4q6e6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su55n"]
+atlas = ExtResource("2_4q6e6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s043"]
+atlas = ExtResource("2_4q6e6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igt2h"]
+atlas = ExtResource("2_4q6e6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmoxd"]
+atlas = ExtResource("2_4q6e6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx7j6"]
+atlas = ExtResource("2_4q6e6")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ossxw"]
+atlas = ExtResource("2_4q6e6")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l5cl"]
+atlas = ExtResource("2_4q6e6")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjdvy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlrre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su55n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s043")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igt2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmoxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx7j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ossxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l5cl")
+}],
+"loop": true,
+"name": &"burn",
+"speed": 15.0
+}]
+
+[node name="TouchSide" unique_id=436076140 instance=ExtResource("1_djum3")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1844091043]
+sprite_frames = SubResource("SpriteFrames_xjdvy")
+frame_progress = 0.0
+flip_h = true
+
+[node name="PointLight2D" parent="." index="1" unique_id=239150989]
+position = Vector2(0, 16)
