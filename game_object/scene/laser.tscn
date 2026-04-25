@@ -93,7 +93,7 @@ color = Color(0.79459536, 0.29225972, 0.25310516, 1)
 position = Vector2(1, 0)
 script = ExtResource("1_jqgmf")
 beam_length = 400.0
-beam_glow_spread = 4.0
+beam_glow_spread = 7.0
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1098404901]
 material = SubResource("ShaderMaterial_nwvqd")
@@ -104,6 +104,7 @@ gradient = SubResource("Gradient_pfb7b")
 texture_mode = 2
 
 [node name="GlowLine" type="Line2D" parent="." unique_id=177531483]
+visible = false
 modulate = Color(0.9870468, 0.45926917, 0.5818279, 1)
 self_modulate = Color(0.88741493, 0.5286922, 0.4962952, 1)
 show_behind_parent = true
@@ -151,7 +152,7 @@ texture_scale = 0.1
 
 [node name="BeamLight" type="PointLight2D" parent="." unique_id=924065139]
 position = Vector2(200, 0)
-scale = Vector2(0.5555556, 0.014814815)
+scale = Vector2(0.6296296, 0.025925925)
 color = Color(0.88235295, 0, 0, 1)
 energy = 1.2
 texture = ExtResource("5_q3y04")
