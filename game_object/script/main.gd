@@ -4,6 +4,7 @@ extends Node
 @onready var past: Node2D = $Past
 @onready var player: CharacterBody2D = $Player
 @onready var spawn_point: Marker2D = $SpawnPoint
+@onready var clock_ui: AnimatedSprite2D = $HUD/ClockUI
 
 var in_present: bool = true
 var _is_falling: bool = false
@@ -16,6 +17,8 @@ func _ready() -> void:
 	_set_timeline_active(past, !in_present)
 	for room in get_tree().get_nodes_in_group("puzzle_room"):
 		room.set_timeline(in_present)
+	clock_ui.animation = "Present"
+	clock_ui.frame = clock_ui.sprite_frames.get_frame_count("Present") - 1
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -36,6 +39,7 @@ func _physics_process(_delta):
 
 func _apply_timeline_state() -> void:
 	player.play_swap_effect()
+	clock_ui.play("Present" if in_present else "Past")
 	_set_timeline_active(present, in_present)
 	_set_timeline_active(past, !in_present)
 	for room in get_tree().get_nodes_in_group("puzzle_room"):
