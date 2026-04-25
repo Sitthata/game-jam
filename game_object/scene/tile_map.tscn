@@ -285,11 +285,10 @@ scale = Vector2(1, 1)
 speed = 100
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1515780715]
-visible = false
 color = Color(0.12749338, 0.33192366, 0.49861306, 1)
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1731432320 groups=["respawn_point"]]
-position = Vector2(1376, -592)
+position = Vector2(1376, -712)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1997696891]
 

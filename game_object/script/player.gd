@@ -61,13 +61,13 @@ func _process(_delta: float) -> void:
 	_camera.offset = mouse_offset / visible_half * camera_look_strength
 
 func _physics_process(delta: float) -> void:
-	if _is_playing_death:
+	if _is_playing_death or _is_playing_fall:
 		velocity = Vector2.ZERO
 		return
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 	move_and_slide()
-	
+
 	# Logic to push object
 	if direction.length() > 0:
 		for i in get_slide_collision_count():
@@ -76,12 +76,11 @@ func _physics_process(delta: float) -> void:
 			if collider and collider.has_method("push"):
 				collider.push(col.get_normal() * -1, push_speed)
 
-
-	if _is_playing_fall or _is_playing_death:
-		return
-	if velocity.length() > 0:
-		if abs(velocity.y) >= abs(velocity.x):
-			if velocity.y > 0:
+	# Use direction (raw input) not velocity (post-collision) so pushing a vase
+	# still triggers walk animation even when move_and_slide zeros velocity.
+	if direction.length() > 0:
+		if abs(direction.y) >= abs(direction.x):
+			if direction.y > 0:
 				_animated_sprite.play("walk_front")
 				_last_dir = "front"
 			else:
@@ -89,7 +88,7 @@ func _physics_process(delta: float) -> void:
 				_last_dir = "back"
 		else:
 			_animated_sprite.play("walk_side")
-			_animated_sprite.flip_h = velocity.x > 0
+			_animated_sprite.flip_h = direction.x > 0
 			_last_dir = "side"
 	else:
 		_animated_sprite.play("idle_" + _last_dir)
