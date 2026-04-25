@@ -3,6 +3,7 @@ extends Node2D
 
 @export var beam_width: float = 4.0
 @export var beam_length: float = 300.0
+@export var beam_glow_spread: float = 8.0
 @export var spawn_point: Marker2D
 
 @onready var _line: Line2D = $Line2D
@@ -99,12 +100,12 @@ func _update_beam() -> void:
 	var shape = _collision_shape.shape as RectangleShape2D
 	shape.size = Vector2(length, beam_width)
 
-	# Stretch beam light to cover the full laser line
-	if _beam_light:
-		var base_size := BEAM_LIGHT_BASE_HALF * 2.0 * _beam_light.texture_scale
+	# Scale beam light to match actual beam rectangle (length × beam_width)
+	if _beam_light and _beam_light.texture:
+		var tex := _beam_light.texture.get_size() * _beam_light.texture_scale
 		_beam_light.position = midpoint
 		_beam_light.rotation = end_local.angle()
-		_beam_light.scale = Vector2(length / base_size, 1.0)
+		_beam_light.scale = Vector2(length * 1.7 / tex.x, (beam_width * beam_glow_spread) / tex.y)
 
 func _on_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and spawn_point:
