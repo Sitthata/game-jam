@@ -607,6 +607,19 @@ texture = ExtResource("31_s4pcv")
 1:2/0 = 0
 2:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4pcv"]
+texture = ExtResource("9_gflt1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+1:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0irux"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
@@ -1178,3 +1191,4 @@ sources/35 = SubResource("TileSetAtlasSource_7qpwh")
 sources/36 = SubResource("TileSetAtlasSource_yng8e")
 sources/37 = SubResource("TileSetAtlasSource_aj424")
 sources/10 = SubResource("TileSetAtlasSource_52osd")
+sources/38 = SubResource("TileSetAtlasSource_s4pcv")
