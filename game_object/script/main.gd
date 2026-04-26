@@ -12,6 +12,8 @@ var _is_falling: bool = false
 @export var reset_radius: float = 400.0
 
 func _ready() -> void:
+	#var spawn_position = get_nearest_respawn_point()
+	#player.global_position = spawn_position
 	player.global_position = spawn_point.global_position
 	_set_timeline_active(present, in_present)
 	_set_timeline_active(past, !in_present)
@@ -89,16 +91,18 @@ func _do_respawn() -> void:
 	)
 
 
-func get_nearest_respawn_point():
-	var respawn_pos: Vector2 = player.global_position  # fallback: stay in place
+func get_nearest_respawn_point() -> Vector2:
+	var respawn_pos: Vector2 = spawn_point.global_position  # fallback: level start
 	var best_dist: float = INF
-	for marker in get_tree().get_nodes_in_group("respawn_point"):
-		var d = player.global_position.distance_to(marker.global_position)
+	for campfire in get_tree().get_nodes_in_group("respawn_point"):
+		if not campfire.get("is_active"):
+			continue
+		var offset = campfire.get("spawn_offset")
+		var pos: Vector2 = campfire.global_position + (offset if offset != null else Vector2.ZERO)
+		var d = player.global_position.distance_to(pos)
 		if d < best_dist:
 			best_dist = d
-			respawn_pos = marker.global_position
-	if best_dist == INF:
-		push_warning("No respawn_point group members found in scene")
+			respawn_pos = pos
 	return respawn_pos
 
 func _reset_vases() -> void:

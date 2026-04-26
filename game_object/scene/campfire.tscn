@@ -1,35 +1,35 @@
 [gd_scene format=3 uid="uid://q18qbueyn13t"]
 
-[ext_resource type="Texture2D" uid="uid://bbt7asgasdrcw" path="res://assets/element/Campfire.png" id="1_5xkpd"]
-[ext_resource type="Script" uid="uid://bae0fu21n2tjm" path="res://game_object/script/campfire.gd" id="1_q2560"]
-[ext_resource type="Texture2D" uid="uid://c1lt0mw2l7xhq" path="res://assets/effect/Thunder 2D Effect Tutorial.png" id="2_q2560"]
+[ext_resource type="Script" uid="uid://bae0fu21n2tjm" path="res://game_object/script/campfire.gd" id="1_281ag"]
+[ext_resource type="Texture2D" uid="uid://bbt7asgasdrcw" path="res://assets/element/Campfire.png" id="2_cfud4"]
+[ext_resource type="Texture2D" uid="uid://c1lt0mw2l7xhq" path="res://assets/effect/Thunder 2D Effect Tutorial.png" id="3_ytv65"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_at718"]
-atlas = ExtResource("1_5xkpd")
+atlas = ExtResource("2_cfud4")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8hro"]
-atlas = ExtResource("1_5xkpd")
+atlas = ExtResource("2_cfud4")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdy55"]
-atlas = ExtResource("1_5xkpd")
+atlas = ExtResource("2_cfud4")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qsmj"]
-atlas = ExtResource("1_5xkpd")
+atlas = ExtResource("2_cfud4")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3s1mk"]
-atlas = ExtResource("1_5xkpd")
+atlas = ExtResource("2_cfud4")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wncph"]
-atlas = ExtResource("1_5xkpd")
+atlas = ExtResource("2_cfud4")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7lqgk"]
-atlas = ExtResource("1_5xkpd")
+atlas = ExtResource("2_cfud4")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n7hp5"]
@@ -61,8 +61,14 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Campfire" type="Node2D" unique_id=619536341]
-script = ExtResource("1_q2560")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwmke"]
+size = Vector2(32, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_281ag"]
+radius = 304.10526
+
+[node name="Campfire" type="Node2D" unique_id=619536341 groups=["respawn_point"]]
+script = ExtResource("1_281ag")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1224777993]
 sprite_frames = SubResource("SpriteFrames_n7hp5")
@@ -76,5 +82,19 @@ energy = 1.2
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 1.3
-texture = ExtResource("2_q2560")
+texture = ExtResource("3_ytv65")
 texture_scale = 0.1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1983532762]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=157718361]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_cwmke")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1332230351]
+position = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=309687948]
+shape = SubResource("CircleShape2D_281ag")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
