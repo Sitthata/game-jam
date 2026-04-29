@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cmxny11xrqns4" path="res://assets/effect/light_effect.png" id="13_koo0f"]
 [ext_resource type="Script" uid="uid://c4uxtatlm4cw3" path="res://game_object/script/hint_display.gd" id="14_x0j8o"]
 [ext_resource type="FontFile" uid="uid://bcyasl37deh4j" path="res://assets/main_menu/Pixeled.ttf" id="15_dy2ad"]
+[ext_resource type="Texture2D" uid="uid://cos5s0ikmcisg" path="res://assets/main_menu/Keybinding Main Menu.png" id="19_q2i4f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qn5j"]
 atlas = ExtResource("10_6ngj5")
@@ -401,7 +402,7 @@ energy = 0.3
 texture = ExtResource("13_koo0f")
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1731432320 groups=["respawn_point"]]
-position = Vector2(352, 360)
+position = Vector2(1416, -2552)
 
 [node name="HintTrigger" parent="." unique_id=1389168656 instance=ExtResource("13_gudy1")]
 position = Vector2(352, 304)
@@ -411,7 +412,7 @@ display_duration = 12.0
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1997696891]
 
 [node name="ClockUI" type="AnimatedSprite2D" parent="HUD" unique_id=1728030660]
-position = Vector2(96, 104)
+position = Vector2(96, 96)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_h2xby")
 animation = &"Present"
@@ -440,6 +441,15 @@ theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="HUD" unique_id=253231422]
+texture_filter = 1
+offset_left = 1080.0
+offset_top = 32.0
+offset_right = 1257.3333
+offset_bottom = 200.0
+texture = ExtResource("19_q2i4f")
+expand_mode = 1
 
 [node name="Campfire" parent="." unique_id=136697448 instance=ExtResource("12_jo8iu")]
 position = Vector2(352, 376)

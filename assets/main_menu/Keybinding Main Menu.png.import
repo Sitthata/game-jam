@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccktxr56uo0wd"
-path="res://.godot/imported/MAIN MENU ลุง.png-e9ac9c4e4ff0f1d4fee7063e39ab3ecc.ctex"
+uid="uid://cos5s0ikmcisg"
+path="res://.godot/imported/Keybinding Main Menu.png-e1439689ce77623643224fb81141cf24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_menu/MAIN MENU ลุง.png"
-dest_files=["res://.godot/imported/MAIN MENU ลุง.png-e9ac9c4e4ff0f1d4fee7063e39ab3ecc.ctex"]
+source_file="res://assets/main_menu/Keybinding Main Menu.png"
+dest_files=["res://.godot/imported/Keybinding Main Menu.png-e1439689ce77623643224fb81141cf24.ctex"]
 
 [params]
 

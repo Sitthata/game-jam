@@ -2,56 +2,53 @@
 
 [ext_resource type="Script" uid="uid://csv5j5bsd5w7f" path="res://game_object/script/main_menu.gd" id="1_xso3a"]
 [ext_resource type="Texture2D" uid="uid://ba2g85r64q542" path="res://assets/main_menu/Main Menu Wallapaper@3x-100.jpg" id="2_gnl16"]
-[ext_resource type="Texture2D" uid="uid://ccktxr56uo0wd" path="res://assets/main_menu/MAIN MENU ลุง.png" id="3_ptkqv"]
+[ext_resource type="Texture2D" uid="uid://dgx52hd3lvoeg" path="res://assets/main_menu/Main Menu.png" id="3_a4bvv"]
 [ext_resource type="FontFile" uid="uid://bcyasl37deh4j" path="res://assets/main_menu/Pixeled.ttf" id="4_gayli"]
 [ext_resource type="Material" uid="uid://dor0tdaityhby" path="res://texture/snow_particle.tres" id="5_a4bvv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gayli"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4bvv"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a4bvv"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0arkj"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0arkj"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sadqo"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sadqo"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxmm1"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxmm1"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uk8f"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8uk8f"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_820p8"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_820p8"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtn0b"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dtn0b"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m35n3"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(448, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m35n3"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpeb0"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(512, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kpeb0"]
-atlas = ExtResource("3_ptkqv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpkvm"]
+atlas = ExtResource("3_a4bvv")
 region = Rect2(576, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qpkvm"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gayli")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a4bvv")
 }, {
@@ -78,10 +75,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kpeb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpkvm")
 }],
 "loop": true,
 "name": &"idle_front",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="MainMenu" type="Node2D" unique_id=711978729]
@@ -95,7 +95,6 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1722700892]
-texture_filter = 1
 position = Vector2(880, 544)
 scale = Vector2(6.375, 6.375)
 sprite_frames = SubResource("SpriteFrames_qpkvm")
