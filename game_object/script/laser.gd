@@ -23,6 +23,9 @@ const BEAM_LIGHT_BASE_HALF := 64.0
 
 var _exclude_rids: Array[RID] = []
 
+func set_active_inverted(active: bool) -> void:
+	set_active(not active)
+
 func set_active(active: bool) -> void:
 	_active = active
 	_line.visible = active

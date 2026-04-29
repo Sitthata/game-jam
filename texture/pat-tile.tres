@@ -260,7 +260,7 @@ texture = ExtResource("2_oothj")
 resource_name = "void_falling"
 texture = ExtResource("15_fvmy5")
 1:1/0 = 0
-1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(6, -6, 6, 6, -6, 6, -6, -6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ymeh"]
 texture = ExtResource("3_y5vty")
