@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ck1mr2g5glm5k"]
+
+[ext_resource type="Script" uid="uid://byl27hh7inuqp" path="res://game_object/script/hint_trigger.gd" id="1_16i72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtt8a"]
+size = Vector2(64, 20)
+
+[node name="HintTrigger" type="Area2D" unique_id=103651247]
+script = ExtResource("1_16i72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128617045]
+shape = SubResource("RectangleShape2D_xtt8a")

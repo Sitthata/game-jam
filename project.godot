@@ -28,6 +28,7 @@ puzzle_room=""
 respawn_point=""
 resettable=""
 player=""
+hint_display=""
 
 [input]
 

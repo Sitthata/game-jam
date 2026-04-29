@@ -6,14 +6,26 @@
 [ext_resource type="PackedScene" uid="uid://bayn0ej2rum00" path="res://game_object/scene/laser_room.tscn" id="4_j75sf"]
 [ext_resource type="Material" uid="uid://dor0tdaityhby" path="res://texture/snow_particle.tres" id="4_smn66"]
 [ext_resource type="PackedScene" uid="uid://duqamnr4ohdc1" path="res://game_object/scene/door.tscn" id="5_j75sf"]
-[ext_resource type="PackedScene" path="res://game_object/scene/touch_stright.tscn" id="5_wpi7v"]
+[ext_resource type="PackedScene" uid="uid://baf72rc6534us" path="res://game_object/scene/touch_stright.tscn" id="5_wpi7v"]
 [ext_resource type="PackedScene" uid="uid://c7duadhriltab" path="res://game_object/scene/pressure_plate.tscn" id="6_7f1cr"]
-[ext_resource type="PackedScene" path="res://game_object/scene/touch.tscn" id="6_x0j8o"]
+[ext_resource type="PackedScene" uid="uid://c5bee8axl4u3t" path="res://game_object/scene/touch.tscn" id="6_x0j8o"]
 [ext_resource type="PackedScene" uid="uid://ik1hxqp1h4sd" path="res://game_object/scene/room_3.tscn" id="8_7f1cr"]
 [ext_resource type="Texture2D" uid="uid://b8ai0ve311uw8" path="res://assets/ui/Clock UI.png" id="10_6ngj5"]
 [ext_resource type="PackedScene" uid="uid://djxrjakk4neg2" path="res://game_object/scene/player.tscn" id="10_i6cpi"]
 [ext_resource type="PackedScene" uid="uid://nl3k1quwdy1g" path="res://room_4.tscn" id="11_7qn5j"]
 [ext_resource type="PackedScene" uid="uid://q18qbueyn13t" path="res://game_object/scene/campfire.tscn" id="12_jo8iu"]
+[ext_resource type="PackedScene" uid="uid://ck1mr2g5glm5k" path="res://game_object/scene/hint_trigger.tscn" id="13_gudy1"]
+[ext_resource type="Script" uid="uid://c4uxtatlm4cw3" path="res://game_object/script/hint_display.gd" id="14_x0j8o"]
+[ext_resource type="FontFile" uid="uid://bcyasl37deh4j" path="res://assets/main_menu/Pixeled.ttf" id="15_dy2ad"]
+
+[sub_resource type="Gradient" id="Gradient_gudy1"]
+offsets = PackedFloat32Array(0.05148206, 0.7925117, 0.97659904)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_koo0f"]
+gradient = SubResource("Gradient_gudy1")
+fill_from = Vector2(0.23931624, 0.758547)
+fill_to = Vector2(0.8141026, 0.091880344)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qn5j"]
 atlas = ExtResource("10_6ngj5")
@@ -167,6 +179,18 @@ animations = [{
 "name": &"Present",
 "speed": 18.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2i4f"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="Tilemap" type="Node2D" unique_id=814812158]
 script = ExtResource("1_c81vo")
@@ -378,8 +402,18 @@ speed = 100
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1515780715]
 color = Color(0.12749338, 0.33192366, 0.49861306, 1)
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=424636813]
+position = Vector2(1016, -168.00003)
+scale = Vector2(3.75, 3.9375)
+texture = SubResource("GradientTexture2D_koo0f")
+
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1731432320 groups=["respawn_point"]]
 position = Vector2(352, 448)
+
+[node name="HintTrigger" parent="." unique_id=1389168656 instance=ExtResource("13_gudy1")]
+position = Vector2(352, 304)
+hint_text = "press \"q\" to switch"
+display_duration = 12.0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1997696891]
 
@@ -390,6 +424,29 @@ sprite_frames = SubResource("SpriteFrames_h2xby")
 animation = &"Present"
 frame = 9
 frame_progress = 1.0
+
+[node name="HintDisplay" type="PanelContainer" parent="HUD" unique_id=1107138922 groups=["hint_display"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -415.0
+offset_top = -90.0
+offset_right = 415.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2i4f")
+script = ExtResource("14_x0j8o")
+
+[node name="Label" type="Label" parent="HUD/HintDisplay" unique_id=385252863]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_dy2ad")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
 
 [node name="Campfire" parent="." unique_id=619536341 instance=ExtResource("12_jo8iu")]
 position = Vector2(352, 376)
@@ -410,3 +467,5 @@ is_active = true
 [connection signal="released" from="PressurePlate3" to="Door6" method="close"]
 [connection signal="pressed" from="PressurePlate4" to="Door7" method="open"]
 [connection signal="released" from="PressurePlate4" to="Door7" method="close"]
+
+[editable path="HintTrigger"]
