@@ -526,9 +526,14 @@ texture = ExtResource("19_arphx")
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, -6.8197117, -0.17192554, -4.8139153, -2.8081179, -3.151966, -3.151969, -2.0631065, -5.04315, -1.9484901, -8, -8, -8)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_02wsc"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_furek"]
 texture = ExtResource("20_u6fag")
 1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_02wsc")
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3lvxv"]
 texture = ExtResource("21_v02ed")

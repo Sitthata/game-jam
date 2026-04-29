@@ -97,18 +97,22 @@ position = Vector2(496, -192)
 z_index = 1
 position = Vector2(56, -320)
 
-[node name="Laser4" parent="Past" unique_id=443925778 instance=ExtResource("3_uvv41")]
+[node name="Laser4" parent="Past" unique_id=443925778 node_paths=PackedStringArray("spawn_point") instance=ExtResource("3_uvv41")]
 position = Vector2(312, -288)
 rotation = -1.5707964
+spawn_point = NodePath("../../room3 checkpoint")
 
-[node name="Laser5" parent="Past" unique_id=1539816209 instance=ExtResource("3_uvv41")]
+[node name="Laser5" parent="Past" unique_id=1539816209 node_paths=PackedStringArray("spawn_point") instance=ExtResource("3_uvv41")]
 position = Vector2(384, -288)
 rotation = -1.5707964
+spawn_point = NodePath("../../room3 checkpoint")
 
 [node name="Door" parent="." unique_id=190594260 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(160, -424)
 
 [node name="Door2" parent="." unique_id=1728555808 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(456, -320)
 rotation = 1.5707964
 
@@ -116,14 +120,17 @@ rotation = 1.5707964
 position = Vector2(496, -304)
 
 [node name="Door3" parent="." unique_id=92060175 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(88, -208)
 rotation = 1.5707964
 
 [node name="Door4" parent="." unique_id=882896824 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(-8, -208)
 rotation = 4.712389
 
 [node name="Door5" parent="." unique_id=300406944 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(-104, -208)
 rotation = 4.712389
 
@@ -147,10 +154,12 @@ position = Vector2(160, 24)
 position = Vector2(328, -208)
 
 [node name="Door6" parent="." unique_id=1256001281 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(376, -208)
 rotation = 1.5707964
 
 [node name="Door7" parent="." unique_id=790759643 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(88, -320)
 rotation = 1.5707964
 
@@ -158,10 +167,12 @@ rotation = 1.5707964
 position = Vector2(-160, -320)
 
 [node name="Door8" parent="." unique_id=909001773 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(-104, -320)
 rotation = 4.712389
 
 [node name="Door9" parent="." unique_id=1421327176 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(-8, -320)
 rotation = 4.712389
 
@@ -169,6 +180,7 @@ rotation = 4.712389
 position = Vector2(40, -320)
 
 [node name="Door10" parent="." unique_id=1161002932 instance=ExtResource("2_g720a")]
+visible = false
 position = Vector2(232, -320)
 rotation = 4.712389
 

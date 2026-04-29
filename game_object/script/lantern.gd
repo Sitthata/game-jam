@@ -29,3 +29,11 @@ func set_open(value: bool) -> void:
 		open()
 	else:
 		close()
+
+
+func _on_lever_toggled(is_on: bool) -> void:
+	pass # Replace with function body.
+
+
+func _on_lever_2_toggled(is_on: bool) -> void:
+	pass # Replace with function body.
