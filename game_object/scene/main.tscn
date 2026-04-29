@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://djxrjakk4neg2" path="res://game_object/scene/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ulx0qcjsimnh" path="res://game_object/scene/laser.tscn" id="3_8susu"]
 [ext_resource type="PackedScene" uid="uid://duqamnr4ohdc1" path="res://game_object/scene/door.tscn" id="3_656ll"]
-[ext_resource type="PackedScene" uid="uid://diewe7xrlssog" path="res://game_object/scene/vase_fat.tscn" id="3_v0kpm"]
+[ext_resource type="PackedScene" path="res://game_object/scene/vase_fat.tscn" id="3_v0kpm"]
 [ext_resource type="PackedScene" uid="uid://bopyp2mjnv2oa" path="res://game_object/scene/vase.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://pvxtb2tj457" path="res://game_object/scene/lever.tscn" id="4_p25bm"]
 [ext_resource type="PackedScene" uid="uid://c7duadhriltab" path="res://game_object/scene/pressure_plate.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://c5bee8axl4u3t" path="res://game_object/scene/touch.tscn" id="10_ckruv"]
+[ext_resource type="PackedScene" uid="uid://ba1kp80ubyba7" path="res://game_object/scene/touch.tscn" id="10_ckruv"]
 
 [node name="Main" type="Node" unique_id=907222161]
 script = ExtResource("1_h2yge")

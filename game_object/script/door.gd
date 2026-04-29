@@ -33,3 +33,11 @@ func set_open(value: bool) -> void:
 		open()
 	else:
 		close()
+
+
+func _on_pressure_plate_released() -> void:
+	pass # Replace with function body.
+
+
+func _on_pressure_plate_4_pressed() -> void:
+	pass # Replace with function body.

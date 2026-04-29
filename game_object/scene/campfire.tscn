@@ -65,7 +65,7 @@ animations = [{
 size = Vector2(32, 48)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_281ag"]
-radius = 304.10526
+radius = 40.0
 
 [node name="Campfire" type="Node2D" unique_id=619536341 groups=["respawn_point"]]
 script = ExtResource("1_281ag")

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://c5bee8axl4u3t"]
+[gd_scene format=3 uid="uid://ba1kp80ubyba7"]
 
-[ext_resource type="Script" uid="uid://ct78lpep7dhnv" path="res://game_object/script/torch.gd" id="1_livv7"]
+[ext_resource type="Script" path="res://game_object/script/torch.gd" id="1_livv7"]
 [ext_resource type="Texture2D" uid="uid://ddcwl0436hpds" path="res://assets/tilemap/Torch Yellow L.png" id="2_liajn"]
 [ext_resource type="Texture2D" uid="uid://c1lt0mw2l7xhq" path="res://assets/effect/Thunder 2D Effect Tutorial.png" id="3_ekncq"]
 
@@ -77,12 +77,13 @@ disable_flicker = false
 sprite_frames = SubResource("SpriteFrames_pcsid")
 animation = &"burn"
 frame_progress = 0.6056791
+flip_h = true
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=239150989]
-position = Vector2(-6, 0)
 color = Color(0.9607843, 0.7294118, 0.1882353, 1)
+energy = 0.8
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 1.3
 texture = ExtResource("3_ekncq")
-texture_scale = 0.4
+texture_scale = 0.15
