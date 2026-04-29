@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://5bfpamxei7bq"]
+
+[ext_resource type="Script" uid="uid://y8xxf8bpvamy" path="res://game_object/script/lantern.gd" id="1_dkxos"]
+[ext_resource type="Texture2D" uid="uid://3bnbqagqxl80" path="res://assets/element/Lantern Animation from ELEMENT.png" id="1_vdc8i"]
+[ext_resource type="Texture2D" uid="uid://c1lt0mw2l7xhq" path="res://assets/effect/Thunder 2D Effect Tutorial.png" id="2_dkxos"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2vve"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxmm8"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5grs7"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjm26"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4l8b"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajac4"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv7wa"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx7wy"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trrtm"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(384, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tghe4"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(432, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu331"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(480, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwyrs"]
+atlas = ExtResource("1_vdc8i")
+region = Rect2(528, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqotu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2vve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxmm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5grs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjm26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4l8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajac4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv7wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx7wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trrtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tghe4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu331")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwyrs")
+}],
+"loop": false,
+"name": &"light_up",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkxos"]
+size = Vector2(9, 11)
+
+[node name="Lantern" type="Node2D" unique_id=284832395]
+script = ExtResource("1_dkxos")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=342228996]
+sprite_frames = SubResource("SpriteFrames_sqotu")
+animation = &"light_up"
+frame = 11
+frame_progress = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=7405814]
+color = Color(0.54509807, 1, 1, 1)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.3
+texture = ExtResource("2_dkxos")
+texture_scale = 0.6
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1819125167]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=86423800]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_dkxos")
