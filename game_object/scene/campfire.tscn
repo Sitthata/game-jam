@@ -65,7 +65,7 @@ animations = [{
 size = Vector2(32, 48)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_281ag"]
-radius = 64.0
+radius = 32.0
 
 [node name="Campfire" type="Node2D" unique_id=619536341 groups=["respawn_point"]]
 script = ExtResource("1_281ag")
@@ -86,12 +86,14 @@ texture = ExtResource("3_ytv65")
 texture_scale = 0.1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1983532762]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=157718361]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_cwmke")
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1332230351]
+visible = false
 position = Vector2(0, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=309687948]
