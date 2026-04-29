@@ -71,7 +71,6 @@ position = Vector2(-160, -320)
 
 [node name="Lever" parent="Past" unique_id=62831499 instance=ExtResource("3_kp55b")]
 position = Vector2(496, -80)
-is_on = true
 
 [node name="Laser" parent="Past" unique_id=1342796484 node_paths=PackedStringArray("spawn_point") groups=["timeline_object"] instance=ExtResource("3_uvv41")]
 position = Vector2(336, -128)

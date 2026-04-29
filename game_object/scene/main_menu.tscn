@@ -118,24 +118,13 @@ offset_bottom = 104.0
 
 [node name="StartButton" type="Button" parent="Control" unique_id=1758344330]
 layout_mode = 0
-offset_left = 232.0
+offset_left = 192.0
 offset_top = 368.0
-offset_right = 480.0
+offset_right = 440.0
 offset_bottom = 444.0
 theme_override_fonts/font = ExtResource("4_gayli")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "START GAME"
-flat = true
-
-[node name="ExitButton" type="Button" parent="Control" unique_id=1482564802]
-layout_mode = 0
-offset_left = 264.0
-offset_top = 472.0
-offset_right = 456.0
-offset_bottom = 548.0
-theme_override_fonts/font = ExtResource("4_gayli")
-theme_override_font_sizes/font_size = 24
-text = "EXIT"
 flat = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1768285672]
@@ -146,4 +135,3 @@ preprocess = 30.0
 process_material = ExtResource("5_a4bvv")
 
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="Control/ExitButton" to="." method="_on_exit_pressed"]
