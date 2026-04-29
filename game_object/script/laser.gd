@@ -115,3 +115,7 @@ func do_death_and_respawn(player: Node2D) -> void:
 	player.do_play_death(func():
 		player.global_position = spawn_point.global_position
 	)
+
+
+func _on_pressure_plate_7_pressed() -> void:
+	pass # Replace with function body.
