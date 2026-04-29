@@ -11,6 +11,7 @@ var _last_dir: String = "front"
 var _is_playing_fall: bool = false
 var _is_playing_swap: bool = false
 var _is_playing_death: bool = false
+var _is_panning: bool = false
 
 func _ready() -> void:
 	add_to_group("player")
@@ -56,12 +57,26 @@ func play_swap_effect() -> void:
 	, CONNECT_ONE_SHOT)
 
 func _process(_delta: float) -> void:
+	if _is_panning:
+		return
 	var visible_half = get_viewport_rect().size / 2.0 / _camera.zoom
 	var mouse_offset = get_global_mouse_position() - global_position
 	_camera.offset = mouse_offset / visible_half * camera_look_strength
 
+func pan_camera_to(target: Node2D, wait: float, hold: float, lantern: Node2D) -> void:
+	_is_panning = true
+	var target_offset = target.global_position - global_position
+	var tween = create_tween()
+	tween.tween_property(_camera, "offset", target_offset, 0.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_interval(wait)
+	if lantern != null:
+		tween.tween_callback(lantern.open)
+	tween.tween_interval(hold)
+	tween.tween_property(_camera, "offset", Vector2.ZERO, 0.6).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback(func(): _is_panning = false)
+
 func _physics_process(delta: float) -> void:
-	if _is_playing_death or _is_playing_fall:
+	if _is_playing_death or _is_playing_fall or _is_panning:
 		velocity = Vector2.ZERO
 		return
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

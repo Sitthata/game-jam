@@ -6,6 +6,11 @@ signal toggled(is_on: bool)
 
 @export var is_on: bool = false
 
+@export var pan_target: Node2D
+@export var pan_wait: float = 1.0
+@export var pan_hold: float = 1.5
+@export var pan_lantern: Node2D
+
 
 var _player_in_range: bool = false
 
@@ -22,6 +27,10 @@ func toggle() -> void:
 	is_on = !is_on
 	_update_visual()
 	toggled.emit(is_on)
+	if is_on and pan_target != null:
+		var player = get_tree().get_first_node_in_group("player")
+		if player and player.has_method("pan_camera_to"):
+			player.pan_camera_to(pan_target, pan_wait, pan_hold, pan_lantern)
 
 func _update_visual() -> void:
 	_sprite.play("on" if is_on else "off")
