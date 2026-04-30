@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var hint_text: String = ""
-@export var display_duration: float = 3.0
+@export var display_duration: float = 10.0
 
 var _triggered: bool = false
 
