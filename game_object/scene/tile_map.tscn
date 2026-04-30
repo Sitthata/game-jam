@@ -317,7 +317,7 @@ position = Vector2(88, -504)
 position = Vector2(344, -504)
 
 [node name="Player" parent="." unique_id=526917429 instance=ExtResource("10_i6cpi")]
-position = Vector2(352, 416)
+position = Vector2(416, 864)
 scale = Vector2(1, 1)
 speed = 75
 push_speed = 40
