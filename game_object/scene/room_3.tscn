@@ -151,7 +151,7 @@ hint_text = "What is this vase doing on the pressure plate?"
 [node name="HintTrigger3" parent="Past" unique_id=2081201428 instance=ExtResource("6_f6lm5")]
 position = Vector2(440, -320)
 rotation = 1.5707964
-hint_text = "Hmm... am I forgetting something?"
+hint_text = "Hmm... am I forgetting something? Should I try rewinding?"
 
 [node name="Door" parent="." unique_id=190594260 instance=ExtResource("2_g720a")]
 position = Vector2(160, -424)
