@@ -962,9 +962,13 @@ texture = ExtResource("5_fn5dt")
 7:19/0 = 0
 8:19/0 = 0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s4pcv"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nw353"]
 texture = ExtResource("34_3gdjg")
 1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_s4pcv")
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfppc"]
@@ -1242,6 +1246,7 @@ polygon = PackedVector2Array(-1.1428566, -8, 8, -8, 8, 8, -1.1428566, 8)
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqjhv"]
+resource_name = "main_tile"
 texture = ExtResource("9_gflt1")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_gflt1")
