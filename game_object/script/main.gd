@@ -42,6 +42,7 @@ func _physics_process(_delta):
 
 
 func _apply_timeline_state() -> void:
+	$TimelineSFXPlayer.play()
 	player.play_swap_effect()
 	clock_ui.play("Present" if in_present else "Past")
 	_set_timeline_active(present, in_present)
@@ -111,6 +112,7 @@ func _reset_vases() -> void:
 		if vase.global_position.distance_to(player.global_position) <= reset_radius:
 			if vase.has_method("reset"):
 				vase.reset()
+	$VaseResetSFXPlayer.play()
 
 func _has_collision_at_player(timeline: Node2D) -> bool:
 	for layer in timeline.get_children():

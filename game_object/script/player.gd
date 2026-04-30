@@ -26,6 +26,7 @@ func play_fall_animation(callback: Callable) -> void:
 		_do_play_fall(callback)
 
 func _do_play_fall(callback: Callable) -> void:
+	$FallSFXPlayer.play()
 	_animated_sprite.play("fall")
 	_animated_sprite.animation_finished.connect(func():
 		_is_playing_fall = false
@@ -33,6 +34,7 @@ func _do_play_fall(callback: Callable) -> void:
 	, CONNECT_ONE_SHOT)
 
 func do_play_death(callback: Callable) -> void:
+	$DeathSFXPlayer.play()
 	_is_playing_death = true
 	_animated_sprite.visible = false
 	_effect_sprite.visible = true

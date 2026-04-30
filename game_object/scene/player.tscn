@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://cles3b3qn8ki8" path="res://assets/character/Characters (FrostPunk)/jump.png" id="5_sweqy"]
 [ext_resource type="Texture2D" uid="uid://c1lt0mw2l7xhq" path="res://assets/effect/Thunder 2D Effect Tutorial.png" id="9_0eg0b"]
 [ext_resource type="Texture2D" uid="uid://bfhbn3vuriewt" path="res://assets/character/Characters (FrostPunk)/Death Image from Google Drive.png" id="10_lsyjp"]
+[ext_resource type="AudioStream" uid="uid://b5lq586ou8lp1" path="res://assets/audio/reset_vase_sound.wav" id="12_nj0j4"]
+[ext_resource type="AudioStream" uid="uid://cxi5bn0vngi6" path="res://assets/audio/falling_sound.mp3" id="12_y3i1e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0ta3"]
 atlas = ExtResource("2_60pbn")
@@ -729,3 +731,10 @@ animation = &"death"
 frame = 8
 frame_progress = 1.0
 speed_scale = 0.5
+
+[node name="FallSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=793514070]
+stream = ExtResource("12_y3i1e")
+volume_db = -20.0
+
+[node name="DeathSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1986824730]
+stream = ExtResource("12_nj0j4")
