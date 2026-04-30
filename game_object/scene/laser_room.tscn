@@ -98,6 +98,7 @@ position = Vector2(576, -88)
 position = Vector2(-256, 0)
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=456985159]
+visible = false
 color = Color(0.07466568, 0.2210721, 0.33867726, 1)
 
 [node name="Campfire" parent="." unique_id=619536341 instance=ExtResource("7_pooii")]
