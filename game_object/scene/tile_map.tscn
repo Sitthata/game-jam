@@ -378,11 +378,16 @@ offset_bottom = 200.0
 texture = ExtResource("19_q2i4f")
 expand_mode = 1
 
+[node name="Campfire3" parent="." unique_id=1497555704 instance=ExtResource("12_jo8iu")]
+position = Vector2(416, 832)
+scale = Vector2(0.5, 0.5)
+is_active = true
+detection_radius = 150.0
+
 [node name="Campfire" parent="." unique_id=136697448 instance=ExtResource("12_jo8iu")]
 position = Vector2(352, 376)
 scale = Vector2(0.5, 0.5)
-is_active = true
-detection_radius = 48.0
+detection_radius = 150.0
 
 [connection signal="pressed" from="PressurePlate" to="Door" method="open"]
 [connection signal="pressed" from="PressurePlate" to="Door2" method="close"]

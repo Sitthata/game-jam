@@ -28,6 +28,10 @@ func activate() -> void:
 	is_active = true
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and not is_active:
-		activate()
-		print("Save point check")
+	if not body.is_in_group("player") or is_active:
+		return
+	activate()
+	var displays := get_tree().get_nodes_in_group("hint_display")
+	if displays.is_empty():
+		return
+	displays[0].show_hint("Checkpoint Reached", 1.5)
