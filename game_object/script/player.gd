@@ -85,10 +85,12 @@ func _physics_process(delta: float) -> void:
 
 	# Logic to push object
 	if direction.length() > 0:
+		var pushed := {}
 		for i in get_slide_collision_count():
 			var col = get_slide_collision(i)
 			var collider = col.get_collider()
-			if collider and collider.has_method("push"):
+			if collider and collider.has_method("push") and not pushed.has(collider):
+				pushed[collider] = true
 				collider.push(col.get_normal() * -1, push_speed)
 
 	# Use direction (raw input) not velocity (post-collision) so pushing a vase
