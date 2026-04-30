@@ -77,6 +77,7 @@ func _is_void_at_player() -> bool:
 
 func _do_fall_and_respawn() -> void:
 	_is_falling = true
+	GameEvents.player_died.emit()
 	var respawn_pos = get_nearest_respawn_point()
 	
 	player.play_fall_animation(func():

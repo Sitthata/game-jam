@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 SceneTransition="*uid://duk3bxchf1dge"
+GameEvents="*res://game_object/script/game_events.gd"
 
 [display]
 

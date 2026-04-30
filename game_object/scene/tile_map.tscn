@@ -16,7 +16,9 @@
 [ext_resource type="Script" uid="uid://c4uxtatlm4cw3" path="res://game_object/script/hint_display.gd" id="14_x0j8o"]
 [ext_resource type="FontFile" uid="uid://bcyasl37deh4j" path="res://assets/main_menu/Pixeled.ttf" id="15_dy2ad"]
 [ext_resource type="PackedScene" uid="uid://c8a7a664gcmst" path="res://tutorial_room.tscn" id="18_koo0f"]
+[ext_resource type="Texture2D" uid="uid://cf204iwfmi2ra" path="res://assets/ui/DEADCOUNT.png" id="18_q2i4f"]
 [ext_resource type="Texture2D" uid="uid://cos5s0ikmcisg" path="res://assets/main_menu/Keybinding Main Menu.png" id="19_q2i4f"]
+[ext_resource type="Script" uid="uid://b5d65petgwct1" path="res://game_object/script/death_counter.gd" id="19_rwfjd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qn5j"]
 atlas = ExtResource("10_6ngj5")
@@ -377,6 +379,33 @@ offset_right = 1257.3333
 offset_bottom = 200.0
 texture = ExtResource("19_q2i4f")
 expand_mode = 1
+
+[node name="DeadCounter" type="Control" parent="HUD" unique_id=584730481]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1104.0
+offset_top = 216.0
+offset_right = 1144.0
+offset_bottom = 256.0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/DeadCounter" unique_id=764814228]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -17.0
+offset_right = 32.0
+offset_bottom = 23.0
+texture = ExtResource("18_q2i4f")
+
+[node name="Label" type="Label" parent="HUD/DeadCounter" unique_id=1334328582]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -24.0
+offset_right = 112.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("15_dy2ad")
+text = "1"
+autowrap_mode = 2
+script = ExtResource("19_rwfjd")
 
 [node name="Campfire3" parent="." unique_id=1497555704 instance=ExtResource("12_jo8iu")]
 position = Vector2(416, 832)
