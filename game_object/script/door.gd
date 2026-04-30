@@ -7,14 +7,20 @@ extends StaticBody2D
 @export var lever_a: NodePath
 @export var lever_b: NodePath
 
-var is_open: bool = true
+@export var is_open: bool = true
 var _lever_states: Dictionary = {}
 
 func _ready() -> void:
-	_collision.set_deferred("disabled", true)
-	_occluder.visible = false
 	_sprite.animation = "open"
-	_sprite.frame = _sprite.sprite_frames.get_frame_count("open") - 1
+	if is_open:
+		_collision.set_deferred("disabled", true)
+		_occluder.visible = false
+		_sprite.frame = _sprite.sprite_frames.get_frame_count("open") - 1
+	else:
+		_collision.disabled = false
+		_occluder.visible = true
+		_sprite.frame = 0
+		_sprite.stop()
 
 	_connect_lever(lever_a)
 	_connect_lever(lever_b)
