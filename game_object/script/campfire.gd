@@ -18,6 +18,7 @@ func _ready() -> void:
 		return
 	campfire_sprite.play("flame")
 	add_to_group("respawn_point")
+	$SFXPlayer.play()
 
 func _apply_radius() -> void:
 	var shape := _detection_shape.shape.duplicate() as CircleShape2D

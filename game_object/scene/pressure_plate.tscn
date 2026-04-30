@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://buf04uep2ba3p" path="res://game_object/script/pressure_plate.gd" id="1_8bqyo"]
 [ext_resource type="Texture2D" uid="uid://dpyn6hg12sw1w" path="res://assets/element/Pressure Plate 16x48 (1).png" id="2_smlsk"]
+[ext_resource type="AudioStream" uid="uid://heefexsh3afw" path="res://assets/audio/pressure_plate_release.mp3" id="3_1aec4"]
+[ext_resource type="AudioStream" uid="uid://cjhy1ec3kp162" path="res://assets/audio/pressure_plate_trigger.mp3" id="4_w55aq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1aec4"]
 atlas = ExtResource("2_smlsk")
@@ -19,6 +21,16 @@ hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=931623057]
 shape = SubResource("RectangleShape2D_djmga")
+
+[node name="SFXPlayerRelease" type="AudioStreamPlayer2D" parent="." unique_id=146318340]
+stream = ExtResource("3_1aec4")
+volume_db = -2.0
+max_distance = 100.0
+
+[node name="SFXPlayerTrigger" type="AudioStreamPlayer2D" parent="." unique_id=201742565]
+stream = ExtResource("4_w55aq")
+volume_db = -15.0
+max_distance = 100.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

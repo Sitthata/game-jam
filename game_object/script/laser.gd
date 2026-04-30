@@ -15,6 +15,7 @@ extends Node2D
 @onready var _emitter_light: PointLight2D = get_node_or_null("EmitterLight")
 @onready var _hit_light: PointLight2D = get_node_or_null("HitLight")
 @onready var _beam_light: PointLight2D = get_node_or_null("BeamLight")
+@onready var _hum: AudioStreamPlayer2D = $AmbientPlayer
 var _active: bool = true
 
 # Base half-size of the PointLight2D texture at texture_scale=1.
@@ -33,7 +34,10 @@ func set_active(active: bool) -> void:
 	_area.monitoring = active
 	if _emitter_light: _emitter_light.enabled = active
 	if _beam_light: _beam_light.enabled = active
-	if not active:
+	if active:
+		_hum.play()
+	else:
+		_hum.stop()
 		_line.points = []
 		_glow_line.points = []
 		_hit_particles.emitting = false

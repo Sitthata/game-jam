@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cr8ufukqj6lx8" path="res://game_object/script/lever.gd" id="1_6k4e7"]
 [ext_resource type="Texture2D" uid="uid://px1pr1vcm2xp" path="res://assets/tilemap/switches/Dungeon Assets 32x32.png" id="1_nu5vf"]
+[ext_resource type="AudioStream" uid="uid://dmk40s3sowh5e" path="res://assets/audio/lever_pull.wav" id="3_f8pg5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6k4e7"]
 atlas = ExtResource("1_nu5vf")
@@ -52,6 +53,9 @@ shape = SubResource("CircleShape2D_f8pg5")
 texture_filter = 1
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_nu5vf")
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=160618251]
+stream = ExtResource("3_f8pg5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

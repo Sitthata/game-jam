@@ -24,7 +24,9 @@ func _process(_delta: float) -> void:
 
 func _update_state() -> void:
 	if _bodies_on_plate == 0:
+		$SFXPlayerRelease.play()
 		$Sprite2D.frame = State.PARTIAL
 		released.emit()
 	elif _bodies_on_plate >= 1:
+		$SFXPlayerTrigger.play()
 		$Sprite2D.frame = State.FULL

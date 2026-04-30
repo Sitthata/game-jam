@@ -24,6 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func toggle() -> void:
+	$SFXPlayer.play()
 	is_on = !is_on
 	_update_visual()
 	toggled.emit(is_on)

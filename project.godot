@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 SceneTransition="*uid://duk3bxchf1dge"
 GameEvents="*res://game_object/script/game_events.gd"
+BgmPlayer="*uid://c3ncd402xey3"
 
 [display]
 

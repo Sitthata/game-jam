@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b46o51kclausi" path="res://game_object/script/door.gd" id="2_0htcu"]
 [ext_resource type="Texture2D" uid="uid://dcnpg2auidqgu" path="res://assets/tilemap/own_assets/door/Double_Door.png" id="2_jb5ld"]
+[ext_resource type="AudioStream" uid="uid://dg8ciwhkw33eg" path="res://assets/audio/door_sound.mp3" id="3_jb5ld"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uc5c1"]
 atlas = ExtResource("2_jb5ld")
@@ -106,3 +107,8 @@ shape = SubResource("RectangleShape2D_u2vvd")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1819718525]
 occluder = SubResource("OccluderPolygon2D_0htcu")
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=932234839]
+stream = ExtResource("3_jb5ld")
+volume_db = -8.0
+max_distance = 120.0
