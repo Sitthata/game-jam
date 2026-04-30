@@ -263,7 +263,7 @@ texture = ExtResource("2_oothj")
 resource_name = "void_falling"
 texture = ExtResource("15_fvmy5")
 1:1/0 = 0
-1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8.137808, -13.868662, 8.13781, -13.754045, 8, 3.2092772, -8, 3.151969)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ymeh"]
 texture = ExtResource("3_y5vty")
@@ -546,6 +546,7 @@ texture = ExtResource("21_v02ed")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s0ym0"]
 texture = ExtResource("22_3gdjg")
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.865425, -2.9227343, 2.9800453, -2.8081179, 2.865429, 3.8969793, -2.808117, 4.068904)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mvv3g"]
 texture = ExtResource("4_3bmk2")
@@ -601,6 +602,7 @@ texture = ExtResource("24_fsbdm")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_riaba"]
 texture = ExtResource("25_srlbw")
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.9542847, -2.1204157, 4.9285355, -1.8338728, 4.756607, 5.043149, -3.9542847, 4.9285326)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ty0b"]
 texture = ExtResource("26_3ybm8")
@@ -619,6 +621,7 @@ texture = ExtResource("28_02wsc")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7qpwh"]
 texture = ExtResource("29_0u1oc")
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.1204147, -8, 2.9800453, -8, 6.017395, -5.04315, 5.387001, -1.9484901, 7.04895, 2.0631056, 4.0115967, 8, -2.9227333, 8, -5.960085, 2.0631056, -4.126213, -2.1204157, -4.8139153, -4.813916)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yng8e"]
 texture = ExtResource("30_52osd")
@@ -647,7 +650,7 @@ texture = ExtResource("9_gflt1")
 2:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
-1:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8.137808, -13.868662, 8.13781, -13.754045, 8, 5.043149, -8, 4.9285326)
 2:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qo1k"]

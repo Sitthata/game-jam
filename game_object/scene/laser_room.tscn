@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://pvxtb2tj457" path="res://game_object/scene/lever.tscn" id="2_8fwwt"]
 [ext_resource type="PackedScene" uid="uid://ulx0qcjsimnh" path="res://game_object/scene/laser.tscn" id="2_ttcxq"]
 [ext_resource type="PackedScene" uid="uid://duqamnr4ohdc1" path="res://game_object/scene/door.tscn" id="3_bp6e0"]
+[ext_resource type="Texture2D" uid="uid://cmxny11xrqns4" path="res://assets/effect/light_effect.png" id="7_gncc3"]
 [ext_resource type="PackedScene" uid="uid://q18qbueyn13t" path="res://game_object/scene/campfire.tscn" id="7_pooii"]
 
 [node name="LaserRoom" type="Node2D" unique_id=150096747 groups=["puzzle_room"]]
@@ -33,10 +34,32 @@ tile_map_data = PackedByteArray("AADv//v/EwACAAIAAADu//v/EwABAAIAAADt//v/EwAAAAA
 tile_set = ExtResource("1_tccfk")
 
 [node name="Layer2" type="TileMapLayer" parent="Present" unique_id=2015960850]
-tile_map_data = PackedByteArray("AAAEAAIAIAABAAEAAADu/wMAGAABAAEAAAD0//3/GgAAAAEAAAD0//7/GgAAAAIAAAD1//z/GgABAAAAAAD1//3/GgABAAEAAAD1//7/GgABAAIAAAD2//3/GgACAAEAAAD2//7/GgACAAIAAAD///r/GQABAAEAAAAJAAAAGQABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAEAAIAIAABAAEAAADu/wMAGAABAAEAAAD0//3/GgAAAAEAAAD0//7/GgAAAAIAAAD1//z/GgABAAAAAAD1//3/GgABAAEAAAD1//7/GgABAAIAAAD2//3/GgACAAEAAAD2//7/GgACAAIAAAD///r/GQABAAEAAAA=")
 tile_set = ExtResource("1_tccfk")
 
+[node name="PointLight2D" type="PointLight2D" parent="Present" unique_id=434319082]
+position = Vector2(-45.444923, -177.03018)
+rotation = 4.537856
+scale = Vector2(0.14338677, 0.045442697)
+energy = 1.66
+texture = ExtResource("7_gncc3")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Present" unique_id=1050809682]
+position = Vector2(222.74788, 78.26917)
+rotation = -4.886922
+scale = Vector2(0.100421116, 0.037496634)
+energy = 0.7
+texture = ExtResource("7_gncc3")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Present" unique_id=900366453]
+position = Vector2(419.88217, 71.35313)
+rotation = -4.537856
+scale = Vector2(0.09127898, 0.04354346)
+energy = 0.6
+texture = ExtResource("7_gncc3")
+
 [node name="Past" type="Node2D" parent="." unique_id=455733188]
+visible = false
 
 [node name="Void" type="TileMapLayer" parent="Past" unique_id=1518619362]
 tile_map_data = PackedByteArray("AADn/wEACgABAAEAAADo/wEACgABAAEAAADp/wEACgABAAEAAADq/wEACgABAAEAAADr/wEACgABAAEAAADs/wEACgABAAEAAADn//7/CgABAAEAAADo//7/CgABAAEAAADp//7/CgABAAEAAADq//7/CgABAAEAAADr//7/CgABAAEAAADs//7/CgABAAEAAAA=")
@@ -75,12 +98,18 @@ position = Vector2(576, -88)
 position = Vector2(-256, 0)
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=456985159]
-visible = false
 color = Color(0.07466568, 0.2210721, 0.33867726, 1)
 
 [node name="Campfire" parent="." unique_id=619536341 instance=ExtResource("7_pooii")]
 position = Vector2(-232, -8)
 scale = Vector2(0.5, 0.5)
 detection_radius = 150.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2130616327]
+position = Vector2(-356.04874, -160)
+rotation = 4.712389
+scale = Vector2(0.14945988, 0.039066765)
+energy = 2.09
+texture = ExtResource("7_gncc3")
 
 [connection signal="toggled" from="p2_lever" to="p2_door" method="set_open"]

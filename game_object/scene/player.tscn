@@ -541,8 +541,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
-radius = 4.4000006
-height = 13.0
+radius = 5.5
+height = 15.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2li6v"]
 atlas = ExtResource("10_lsyjp")
