@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b704eirlwlp5k" path="res://game_object/script/base_room.gd" id="1_b3alh"]
 [ext_resource type="TileSet" uid="uid://pmtt6hgqko4" path="res://texture/pat-tile.tres" id="2_5xoae"]
-[ext_resource type="PackedScene" path="res://game_object/scene/hint_trigger.tscn" id="3_5xoae"]
+[ext_resource type="PackedScene" uid="uid://ck1mr2g5glm5k" path="res://game_object/scene/hint_trigger.tscn" id="3_5xoae"]
 [ext_resource type="PackedScene" uid="uid://c7duadhriltab" path="res://game_object/scene/pressure_plate.tscn" id="3_oltek"]
-[ext_resource type="PackedScene" path="res://game_object/scene/vase_fat.tscn" id="4_2at4x"]
+[ext_resource type="PackedScene" uid="uid://diewe7xrlssog" path="res://game_object/scene/vase_fat.tscn" id="4_2at4x"]
 [ext_resource type="PackedScene" uid="uid://duqamnr4ohdc1" path="res://game_object/scene/door.tscn" id="5_i43m8"]
 
 [node name="tutorial room" type="Node2D" unique_id=913701420 groups=["puzzle_room"]]

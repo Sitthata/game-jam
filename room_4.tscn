@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://c7duadhriltab" path="res://game_object/scene/pressure_plate.tscn" id="7_vub3f"]
 [ext_resource type="PackedScene" uid="uid://pvxtb2tj457" path="res://game_object/scene/lever.tscn" id="8_ni4rl"]
 [ext_resource type="PackedScene" uid="uid://5bfpamxei7bq" path="res://game_object/scene/lantern.tscn" id="9_c688k"]
+[ext_resource type="Script" uid="uid://box3inku2ebbq" path="res://game_object/script/ending_trigger.gd" id="10_ni4rl"]
+[ext_resource type="Script" uid="uid://krn6k4r2ryjn" path="res://game_object/script/door_cutscene_trigger.gd" id="10_vub3f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni4rl"]
+size = Vector2(98, 44)
 
 [node name="room4" type="Node2D" unique_id=269108062 groups=["puzzle_room"]]
 script = ExtResource("1_evplp")
@@ -280,18 +285,31 @@ position = Vector2(392, -840)
 [node name="Door21" parent="." unique_id=1624776993 instance=ExtResource("6_c688k")]
 position = Vector2(152, -624)
 rotation = 1.5707964
+is_open = false
 
 [node name="Door22" parent="." unique_id=452282674 instance=ExtResource("6_c688k")]
 position = Vector2(584, -624)
 rotation = 4.712389
+is_open = false
 
-[node name="Lever4" parent="." unique_id=2121174010 node_paths=PackedStringArray("pan_target") instance=ExtResource("8_ni4rl")]
-position = Vector2(424, -832)
-pan_target = NodePath("../Door22")
+[node name="EndingTrigger" type="Area2D" parent="." unique_id=955335329]
+position = Vector2(352, -928)
+script = ExtResource("10_ni4rl")
 
-[node name="Lever5" parent="." unique_id=62831499 node_paths=PackedStringArray("pan_target") instance=ExtResource("8_ni4rl")]
-position = Vector2(312, -832)
-pan_target = NodePath("../Door21")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndingTrigger" unique_id=409308654]
+position = Vector2(16, 52)
+shape = SubResource("RectangleShape2D_ni4rl")
+
+[node name="CutsceneTrigger" type="Area2D" parent="." unique_id=1967409767 node_paths=PackedStringArray("door_left", "door_right")]
+position = Vector2(368, -832)
+script = ExtResource("10_vub3f")
+door_left = NodePath("../Door21")
+door_right = NodePath("../Door22")
+hold_duration = 1.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneTrigger" unique_id=686925259]
+position = Vector2(14, 10)
+shape = SubResource("RectangleShape2D_ni4rl")
 
 [connection signal="toggled" from="Lever" to="Lantern" method="set_open"]
 [connection signal="pressed" from="PressurePlate" to="Door" method="close"]
@@ -331,5 +349,4 @@ pan_target = NodePath("../Door21")
 [connection signal="released" from="PressurePlate7" to="Door15" method="open"]
 [connection signal="toggled" from="Lever3" to="Door11" method="set_open"]
 [connection signal="toggled" from="Lever3" to="Door18" method="set_open"]
-[connection signal="toggled" from="Lever4" to="Door22" method="set_open"]
-[connection signal="toggled" from="Lever5" to="Door21" method="set_open"]
+[connection signal="body_entered" from="EndingTrigger" to="EndingTrigger" method="_on_body_entered"]

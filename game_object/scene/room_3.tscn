@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pvxtb2tj457" path="res://game_object/scene/lever.tscn" id="3_kp55b"]
 [ext_resource type="PackedScene" uid="uid://bopyp2mjnv2oa" path="res://game_object/scene/vase.tscn" id="3_plh35"]
 [ext_resource type="PackedScene" uid="uid://ulx0qcjsimnh" path="res://game_object/scene/laser.tscn" id="3_uvv41"]
-[ext_resource type="PackedScene" path="res://game_object/scene/hint_trigger.tscn" id="6_f6lm5"]
+[ext_resource type="PackedScene" uid="uid://ck1mr2g5glm5k" path="res://game_object/scene/hint_trigger.tscn" id="6_f6lm5"]
 [ext_resource type="PackedScene" uid="uid://c7duadhriltab" path="res://game_object/scene/pressure_plate.tscn" id="7_plh35"]
 
 [node name="room3" type="Node2D" unique_id=1823419115 groups=["puzzle_room"]]
@@ -140,6 +140,7 @@ pan_target = NodePath("../Door")
 [node name="Door3" parent="." unique_id=92060175 instance=ExtResource("2_g720a")]
 position = Vector2(88, -208)
 rotation = 1.5707964
+is_open = false
 
 [node name="Door4" parent="." unique_id=882896824 instance=ExtResource("2_g720a")]
 position = Vector2(-8, -208)

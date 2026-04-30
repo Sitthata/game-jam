@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dkioaw653f3hy"]
+
+[ext_resource type="VideoStream" uid="uid://xxww6jefvr7s" path="res://assets/cutscene/ending_cutscene.ogv" id="1_qdgyv"]
+[ext_resource type="Script" uid="uid://itdsmlesmrtc" path="res://game_object/script/ending.gd" id="1_vb342"]
+
+[node name="EndingScene" type="CanvasLayer" unique_id=168931868]
+script = ExtResource("1_vb342")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2092880585]
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ColorRect" unique_id=888515019]
+layout_mode = 1
+offset_right = 1280.0
+offset_bottom = 720.0
+stream = ExtResource("1_qdgyv")
+expand = true
+
+[connection signal="finished" from="ColorRect/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

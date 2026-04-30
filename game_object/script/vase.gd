@@ -22,21 +22,21 @@ func push(direction: Vector2, push_speed: float) -> void:
 	velocity = Vector2.ZERO
 
 # VERSION A (active): effect plays at current vase position, then teleport
-#func reset() -> void:
-	#_effect_sprite.visible = true
-	#_effect_sprite.play("jump")
-	#_effect_sprite.animation_finished.connect(func():
-		#_effect_sprite.visible = false
-		#global_position = _initial_position
-		#velocity = Vector2.ZERO
-	#, CONNECT_ONE_SHOT)
-
- #VERSION B (commented): teleport immediately, effect plays at destination
 func reset() -> void:
-	global_position = _initial_position
-	velocity = Vector2.ZERO
 	_effect_sprite.visible = true
 	_effect_sprite.play("jump")
 	_effect_sprite.animation_finished.connect(func():
 		_effect_sprite.visible = false
+		global_position = _initial_position
+		velocity = Vector2.ZERO
 	, CONNECT_ONE_SHOT)
+
+ #VERSION B (commented): teleport immediately, effect plays at destination
+#func reset() -> void:
+	#global_position = _initial_position
+	#velocity = Vector2.ZERO
+	#_effect_sprite.visible = true
+	#_effect_sprite.play("jump")
+	#_effect_sprite.animation_finished.connect(func():
+		#_effect_sprite.visible = false
+	#, CONNECT_ONE_SHOT)
